@@ -407,40 +407,169 @@
       line-height: 1.7;
     }
 
-    /* ── PORTFOLIO ── */
-    #portfolio h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 52px;
-      color: #fff;
-      margin-bottom: 48px;
-      letter-spacing: 2px;
+    /* ── PORTFOLIO NEW LAYOUT ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 2px;
+      min-height: 560px;
     }
 
-    .portfolio-tabs {
-      display: flex;
-      gap: 0;
-      margin-bottom: 48px;
-      border-bottom: 0.5px solid var(--line);
+    /* Instagram Banner */
+    .insta-banner {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      background: var(--bg3);
+      border: 0.5px solid var(--line);
     }
-    .tab-btn {
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: var(--muted);
-      font-size: 11px;
+    .insta-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(30%) brightness(0.45);
+      transition: filter 0.5s ease, transform 0.6s ease;
+      position: absolute;
+      inset: 0;
+    }
+    .insta-banner:hover .insta-bg {
+      filter: grayscale(0%) brightness(0.55);
+      transform: scale(1.03);
+    }
+    .insta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
+    }
+    .insta-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-align: center;
+      padding: 40px;
+    }
+    .insta-icon {
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .insta-banner:hover .insta-icon {
+      border-color: rgba(255,255,255,0.8);
+      transform: scale(1.1);
+    }
+    .insta-handle {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: #fff;
+      letter-spacing: 4px;
+      line-height: 1;
+    }
+    .insta-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .insta-cta {
+      margin-top: 12px;
+      font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 12px 24px 12px 0;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      transition: all 0.2s;
-      margin-bottom: -0.5px;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      border: 0.5px solid rgba(255,255,255,0.25);
+      padding: 10px 24px;
+      border-radius: 2px;
+      transition: background 0.3s, border-color 0.3s;
     }
-    .tab-btn:hover { color: #fff; }
-    .tab-btn.active { color: #fff; border-bottom-color: #fff; }
+    .insta-banner:hover .insta-cta {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.6);
+    }
+    .insta-corner-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+    }
 
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
+    /* Sites Stack */
+    .sites-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .site-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg3);
+      border: 0.5px solid var(--line);
+      text-decoration: none;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .site-card:hover { border-color: rgba(255,255,255,0.2); }
+    .site-card-bar {
+      background: var(--bg2);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 0.5px solid var(--line);
+      flex-shrink: 0;
+    }
+    .site-card-screen {
+      flex: 1;
+      overflow: hidden;
+      min-height: 140px;
+      background: var(--bg3);
+    }
+    .site-card-footer {
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid var(--line);
+      flex-shrink: 0;
+    }
+    .site-visit-btn {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(255,255,255,0.07);
+      border: 0.5px solid rgba(255,255,255,0.18);
+      padding: 7px 14px;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .site-card:hover .site-visit-btn {
+      background: rgba(255,255,255,0.15);
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .sites-stack { flex-direction: row; }
+      .site-card { min-height: 280px; }
+    }
 
     /* VIDEO GRID — PREVIEW CARDS */
     .video-grid {
@@ -928,107 +1057,72 @@
   <!-- ── PORTFOLIO ── -->
   <section id="portfolio">
     <div class="section-label" data-i18n="portfolio.label">פורטפוליו</div>
-    <div class="portfolio-tabs">
-      <button class="tab-btn active" onclick="showTab('videos')" data-i18n="tab.videos">וידאו ומונטאז'</button>
-      <button class="tab-btn" onclick="showTab('sites')" data-i18n="tab.sites">אתרים</button>
-    </div>
 
-    <!-- VIDEOS TAB -->
-    <div class="tab-content active" id="tab-videos">
-      <div class="video-grid">
+    <div class="portfolio-grid">
 
-        <!--
-          ═══════════════════════════════════════════════
-          HOW TO ADD YOUR VIDEOS — READ THIS:
-          
-          1. Go to your YouTube video
-          2. Copy the link: https://www.youtube.com/watch?v=XXXXXXXXXXX
-          3. The part after "?v=" is your VIDEO_ID (e.g. "dQw4w9WgXcQ")
-          4. Replace href="https://youtu.be/YOUR_VIDEO_ID_1" with your link
-          5. Replace src="your-thumbnail-1.jpg" with your thumbnail image
-             (put the image in the /public/images/ folder)
-          6. Change the category and title text
-          
-          FEATURED card = big (spans 2 columns) — use for your best work
-          Regular cards = normal size
-          ═══════════════════════════════════════════════
-        -->
-
-        <!-- CARD 1 — FEATURED (big, 2 columns wide) -->
-        <a class="video-card featured" href="https://www.instagram.com/p/DTbALUlkRLo/" target="_blank" rel="noopener">
-          <img class="video-card-thumb" src="images/thumb-1.jpg" alt="Быть глухим">
-          <div class="video-card-overlay"></div>
-          <div class="video-play-btn">▶</div>
-          <span class="video-card-arrow">↗</span>
-          <div class="video-card-info">
-            <div class="video-card-category" data-i18n="vid.cat1">עריכת וידאו</div>
-            <div class="video-card-title">БЫТЬ ГЛУХИМ?</div>
+      <!-- LEFT — Instagram Banner -->
+      <a class="insta-banner" href="https://www.instagram.com/Vichi_404" target="_blank" rel="noopener">
+        <img class="insta-bg" src="images/photo-studio.jpg" alt="vichi404 instagram">
+        <div class="insta-overlay"></div>
+        <div class="insta-content">
+          <div class="insta-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+            </svg>
           </div>
-        </a>
+          <div class="insta-handle">@Vichi_404</div>
+          <div class="insta-label" data-i18n="insta.label">עקוב באינסטגרם</div>
+          <div class="insta-cta" data-i18n="insta.cta">צפה בעבודות ↗</div>
+        </div>
+        <div class="insta-corner-tag">INSTAGRAM</div>
+      </a>
 
-        <!-- CARD 2 -->
-        <a class="video-card" href="https://www.instagram.com/p/DTF0tAFgAwQ/" target="_blank" rel="noopener">
-          <img class="video-card-thumb" src="images/thumb-2.jpg" alt="Freedom">
-          <div class="video-card-overlay"></div>
-          <div class="video-play-btn">▶</div>
-          <span class="video-card-arrow">↗</span>
-          <div class="video-card-info">
-            <div class="video-card-category" data-i18n="vid.cat2">מונטאז'</div>
-            <div class="video-card-title">FREEDOM</div>
-          </div>
-        </a>
+      <!-- RIGHT — Two site cards stacked -->
+      <div class="sites-stack">
 
-        <!-- CARD 3 -->
-        <a class="video-card" href="https://www.instagram.com/p/DSUsnSzEV9u/" target="_blank" rel="noopener">
-          <img class="video-card-thumb" src="images/thumb-3.jpg" alt="Докажи">
-          <div class="video-card-overlay"></div>
-          <div class="video-play-btn">▶</div>
-          <span class="video-card-arrow">↗</span>
-          <div class="video-card-info">
-            <div class="video-card-category" data-i18n="vid.cat3">צילום</div>
-            <div class="video-card-title">ДОКАЖИ.</div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SITES TAB -->
-    <div class="tab-content" id="tab-sites">
-      <div class="sites-grid">
-        <a class="site-item" href="https://www.inklabschool.com" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="site-preview-bar">
+        <!-- inKlab -->
+        <a class="site-card" href="https://www.inklabschool.com" target="_blank" rel="noopener">
+          <div class="site-card-bar">
             <div class="dot dot-r"></div>
             <div class="dot dot-y"></div>
             <div class="dot dot-g"></div>
             <span class="site-url">inklabschool.com</span>
           </div>
-          <div class="site-screen" style="padding:0;overflow:hidden;">
-            <img src="images/inklab-screen.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div class="site-card-screen">
+            <img src="images/inklab-screen.jpg" alt="inKlab" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
-          <div class="site-info" style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="site-card-footer">
             <div>
               <div class="site-name">inKlab School</div>
               <div class="site-tech">React · Railway · Custom Design</div>
             </div>
-            <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:2px;white-space:nowrap;" data-i18n="site.btn">פתח אתר ↗</span>
+            <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
           </div>
         </a>
-        <div class="site-item">
-          <div class="site-preview-bar">
+
+        <!-- vichi404 -->
+        <a class="site-card" href="https://www.vichi404.com" target="_blank" rel="noopener">
+          <div class="site-card-bar">
             <div class="dot dot-r"></div>
             <div class="dot dot-y"></div>
             <div class="dot dot-g"></div>
-            <span class="site-url">בקרוב...</span>
+            <span class="site-url">vichi404.com</span>
           </div>
-          <div class="site-screen">
-            <span style="font-size:28px;opacity:0.08">+</span>
+          <div class="site-card-screen" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:rgba(255,255,255,0.15);letter-spacing:4px;">VICHI404</span>
+            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.2);text-transform:uppercase;" data-i18n="site.current">האתר הנוכחי</span>
           </div>
-          <div class="site-info">
-            <div class="site-name" data-i18n="site.next">הפרויקט הבא שלך</div>
-            <div class="site-tech" data-i18n="site.next.sub">בואו נדבר ↗</div>
+          <div class="site-card-footer">
+            <div>
+              <div class="site-name">vichi404.com</div>
+              <div class="site-tech">HTML · Node.js · Railway</div>
+            </div>
+            <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
           </div>
-        </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1121,6 +1215,9 @@
         'video.placeholder3': 'פרויקט 03',
         'video.note': '⬆ להוספת וידאו — החלף את "YOUR_VIDEO_ID" בקוד הסרטון מYouTube',
         'site.btn': 'פתח אתר ↗',
+        'site.current': 'האתר הנוכחי',
+        'insta.label': 'עקוב באינסטגרם',
+        'insta.cta': 'צפה בעבודות ↗',
         'site.next': 'הפרויקט הבא שלך',
         'site.next.sub': 'בואו נדבר ↗',
         'workspace.label': 'סטודיו',
@@ -1181,6 +1278,9 @@
         'video.placeholder3': 'Проект 03',
         'video.note': '⬆ Чтобы добавить видео — замените "YOUR_VIDEO_ID" на код видео с YouTube',
         'site.btn': 'Открыть сайт ↗',
+        'site.current': 'Текущий сайт',
+        'insta.label': 'Подписывайся в Instagram',
+        'insta.cta': 'Смотреть работы ↗',
         'site.next': 'Твой следующий проект',
         'site.next.sub': 'Давай поговорим ↗',
         'workspace.label': 'Студия',
@@ -1241,6 +1341,9 @@
         'video.placeholder3': 'Project 03',
         'video.note': '⬆ To add video — replace "YOUR_VIDEO_ID" with your YouTube video code',
         'site.btn': 'Visit Site ↗',
+        'site.current': 'Current Site',
+        'insta.label': 'Follow on Instagram',
+        'insta.cta': 'View Work ↗',
         'site.next': 'Your Next Project',
         'site.next.sub': "Let's talk ↗",
         'workspace.label': 'Studio',
