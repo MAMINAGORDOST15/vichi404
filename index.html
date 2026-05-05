@@ -415,90 +415,20 @@
       min-height: 560px;
     }
 
-    /* Instagram Banner */
-    .insta-banner {
-      position: relative;
-      overflow: hidden;
-      display: block;
-      text-decoration: none;
-      cursor: pointer;
-      background: var(--bg3);
-      border: 0.5px solid var(--line);
-    }
-    .insta-bg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(30%) brightness(0.45);
-      transition: filter 0.5s ease, transform 0.6s ease;
-      position: absolute;
-      inset: 0;
-    }
-    .insta-banner:hover .insta-bg {
-      filter: grayscale(0%) brightness(0.55);
-      transform: scale(1.03);
-    }
-    .insta-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
-    }
-    .insta-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      text-align: center;
-      padding: 40px;
-    }
-    .insta-icon {
-      width: 64px;
-      height: 64px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .insta-banner:hover .insta-icon {
-      border-color: rgba(255,255,255,0.8);
-      transform: scale(1.1);
-    }
-    .insta-handle {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 48px;
-      color: #fff;
-      letter-spacing: 4px;
-      line-height: 1;
-    }
-    .insta-label {
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-    }
-    .insta-cta {
-      margin-top: 12px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      background: rgba(255,255,255,0.1);
-      border: 0.5px solid rgba(255,255,255,0.25);
-      padding: 10px 24px;
-      border-radius: 2px;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .insta-banner:hover .insta-cta {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.6);
-    }
+    /* Instagram Banner — new layout */
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 420px; gap: 2px; min-height: 560px; }
+    .insta-photo-wrap { position: relative; overflow: hidden; }
+    .insta-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(20%) brightness(0.8); transition: filter 0.5s, transform 0.6s; }
+    .insta-photo-wrap:hover .insta-photo { filter: grayscale(0%) brightness(0.9); transform: scale(1.03); }
+    .insta-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to left, rgba(10,10,10,0.4), transparent); pointer-events: none; }
+    .insta-text-side { background: var(--bg2); border: 0.5px solid var(--line); display: flex; flex-direction: column; justify-content: center; padding: 48px 40px; gap: 20px; }
+    .insta-corner-tag { font-size: 9px; letter-spacing: 3px; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+    .insta-icon { width: 56px; height: 56px; border: 0.5px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .insta-handle { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; letter-spacing: 3px; line-height: 1; }
+    .insta-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+    .insta-cta-btn { display: inline-block; margin-top: 8px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #0a0a0a; background: #fff; padding: 14px 28px; text-decoration: none; border-radius: 2px; font-weight: 500; transition: opacity 0.2s; align-self: flex-start; }
+    .insta-cta-btn:hover { opacity: 0.85; }
+    @media (max-width: 900px) { .portfolio-grid { grid-template-columns: 1fr; } .insta-photo-wrap { min-height: 300px; } }
     .insta-corner-tag {
       position: absolute;
       top: 20px;
@@ -783,6 +713,56 @@
       text-transform: uppercase;
     }
 
+    /* ── PRICING ── */
+    #pricing { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .pricing-table { background: var(--bg2); border: 0.5px solid var(--line); padding: 32px 28px; display: flex; flex-direction: column; gap: 0; }
+    .pricing-table-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 0.5px solid var(--line); }
+    .pricing-table-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff; letter-spacing: 2px; }
+    .pricing-table-icon { font-size: 18px; color: rgba(255,255,255,0.3); }
+    .pricing-item { padding: 18px 0; border-bottom: 0.5px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+    .pricing-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pricing-item.deal { background: rgba(255,255,255,0.02); margin: 0 -28px; padding: 18px 28px; }
+    .pricing-item-name { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 400; }
+    .pricing-item-price { display: flex; align-items: baseline; gap: 4px; }
+    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #fff; line-height: 1; }
+    .price-currency { font-size: 18px; color: rgba(255,255,255,0.6); }
+    .price-old { font-size: 13px; color: #e05555; text-decoration: line-through; margin-right: 8px; font-weight: 500; }
+    .pricing-buy-btn { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 11px 20px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; transition: opacity 0.2s; align-self: flex-start; }
+    .pricing-buy-btn:hover { opacity: 0.8; }
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+    .modal-overlay.active { display: flex; }
+    .modal-box { background: #111; border: 0.5px solid rgba(255,255,255,0.12); padding: 56px 48px; text-align: center; max-width: 420px; width: 90%; border-radius: 4px; }
+    .modal-icon { font-size: 32px; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+    .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; letter-spacing: 2px; margin-bottom: 16px; }
+    .modal-desc { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 32px; }
+    .modal-close { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 32px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    /* ── FAQ ── */
+    #faq { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 0.5px solid var(--line); cursor: pointer; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; font-size: 17px; color: rgba(255,255,255,0.85); font-weight: 500; transition: color 0.2s; gap: 20px; }
+    .faq-item:hover .faq-question { color: #fff; }
+    .faq-arrow { font-size: 18px; color: rgba(255,255,255,0.3); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); color: #fff; }
+    .faq-answer { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.9; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0; }
+    .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 24px; }
+
+    /* ── GUARANTEE ── */
+    #guarantee { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    .guarantee-grid { display: grid; grid-template-columns: 120px 1fr; gap: 60px; align-items: start; }
+    .guarantee-icon { font-size: 80px; color: rgba(255,255,255,0.06); line-height: 1; padding-top: 8px; }
+    .guarantee-title { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #fff; letter-spacing: 2px; margin-bottom: 20px; }
+    .guarantee-desc { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.9; max-width: 640px; }
+    .guarantee-badges { display: flex; gap: 48px; margin-top: 40px; padding-top: 40px; border-top: 0.5px solid var(--line); }
+    .guarantee-badge { display: flex; flex-direction: column; gap: 6px; }
+    .badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #fff; line-height: 1; }
+    .badge-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    @media (max-width: 900px) { .guarantee-grid { grid-template-columns: 1fr; gap: 24px; } .guarantee-icon { display: none; } }
+
     /* ── CONTACT ── */
     #contact .contact-grid {
       display: grid;
@@ -1007,15 +987,15 @@
         </p>
         <div class="about-stats">
           <div class="stat-item">
-            <div class="stat-num">50+</div>
+            <div class="stat-num" data-target="50" data-suffix="+">0+</div>
             <div class="stat-label" data-i18n="stats.projects">פרויקטים</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num">3+</div>
+            <div class="stat-num" data-target="3" data-suffix="+">0+</div>
             <div class="stat-label" data-i18n="stats.years">שנות ניסיון</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num">4</div>
+            <div class="stat-num" data-target="4" data-suffix="">0</div>
             <div class="stat-label" data-i18n="stats.services">תחומי מומחיות</div>
           </div>
         </div>
@@ -1060,47 +1040,26 @@
 
     <div class="portfolio-grid">
 
-      <!-- LEFT — Instagram Banner -->
-      <a class="insta-banner" href="https://www.instagram.com/Vichi_404" target="_blank" rel="noopener">
-        <img class="insta-bg" src="images/photo-studio.jpg" alt="vichi404 instagram">
-        <div class="insta-overlay"></div>
-        <div class="insta-content">
-          <div class="insta-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.5"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="white"/>
-            </svg>
-          </div>
-          <div class="insta-handle">@Vichi_404</div>
-          <div class="insta-label" data-i18n="insta.label">עקוב באינסטגרם</div>
-          <div class="insta-cta" data-i18n="insta.cta">צפה בעבודות ↗</div>
-        </div>
+      <!-- LEFT — Instagram Photo -->
+      <div class="insta-photo-wrap">
+        <img src="images/photo-insta.jpg" alt="vichi404" class="insta-photo">
+        <div class="insta-photo-overlay"></div>
+      </div>
+
+      <!-- RIGHT — Instagram Text + Button -->
+      <div class="insta-text-side">
         <div class="insta-corner-tag">INSTAGRAM</div>
-      </a>
-
-      <!-- RIGHT — Two site cards stacked -->
-      <div class="sites-stack">
-
-        <!-- inKlab -->
-        <a class="site-card" href="https://www.inklabschool.com" target="_blank" rel="noopener">
-          <div class="site-card-bar">
-            <div class="dot dot-r"></div>
-            <div class="dot dot-y"></div>
-            <div class="dot dot-g"></div>
-            <span class="site-url">inklabschool.com</span>
-          </div>
-          <div class="site-card-screen">
-            <img src="images/inklab-screen.jpg" alt="inKlab" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="site-card-footer">
-            <div>
-              <div class="site-name">inKlab School</div>
-              <div class="site-tech">React · Railway · Custom Design</div>
-            </div>
-            <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
-          </div>
-        </a>
+        <div class="insta-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+          </svg>
+        </div>
+        <div class="insta-handle">@Vichi_404</div>
+        <p class="insta-desc" data-i18n="insta.desc">עוקבים אחרי תהליכי העבודה, עבודות אחרונות, רילסים ותוכן יומיומי — הכל באינסטגרם.</p>
+        <a class="insta-cta-btn" href="https://www.instagram.com/Vichi_404" target="_blank" rel="noopener" data-i18n="insta.cta">צפה בעבודות ↗</a>
+      </div>
 
         <!-- vichi404 -->
         <a class="site-card" href="https://www.vichi404.com" target="_blank" rel="noopener">
@@ -1123,6 +1082,195 @@
           </div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section id="pricing">
+    <div class="section-label" data-i18n="pricing.label">מחירים</div>
+
+    <div class="pricing-grid">
+
+      <!-- FILMING -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">◉</span>
+          <h3 data-i18n="pricing.filming.title">צילום וידאו</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.filming.1">צילום וידאו אחד</div>
+          <div class="pricing-item-price"><span class="price-amount">500</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.filming.2">חבילת 5 סרטונים</div>
+          <div class="pricing-item-price"><span class="price-amount">2,000</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.filming.3">חבילת 10 סרטונים</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">3,799</span><span class="price-currency">₪</span>
+            <span class="price-old">4,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+      <!-- EDITING -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">▶</span>
+          <h3 data-i18n="pricing.editing.title">מונטאז'</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.editing.1">מונטאז' דקה אחת</div>
+          <div class="pricing-item-price"><span class="price-amount">450</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.editing.2">מונטאז' 10 דקות</div>
+          <div class="pricing-item-price"><span class="price-amount">4,500</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.editing.3">מונטאז' 30 דקות</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">10,000</span><span class="price-currency">₪</span>
+            <span class="price-old">13,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+    <!-- WEBSITES -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">◻</span>
+          <h3 data-i18n="pricing.web.title">אתרים</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.web.1">אתר מלא + דומיין</div>
+          <div class="pricing-item-price"><span class="price-amount">2,000</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.web.2">אתר + לנדינג פייג'</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">3,000</span><span class="price-currency">₪</span>
+            <span class="price-old">4,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+      <!-- LANDING -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">✦</span>
+          <h3 data-i18n="pricing.landing.title">לנדינג פייג'</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.landing.1">לנדינג פייג' אחד</div>
+          <div class="pricing-item-price"><span class="price-amount">1,500</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.landing.2">לנדינג + בוט אוטומטי</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">3,000</span><span class="price-currency">₪</span>
+            <span class="price-old">4,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+  </section>
+
+  <!-- THANK YOU MODAL -->
+  <div class="modal-overlay" id="thankYouModal" onclick="hideThankYou()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-icon">✦</div>
+      <h3 class="modal-title" data-i18n="modal.title">תודה רבה!</h3>
+      <p class="modal-desc" data-i18n="modal.desc">קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם האפשרי.</p>
+      <button class="modal-close" onclick="hideThankYou()" data-i18n="modal.close">סגור</button>
+    </div>
+  </div>
+
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="section-label" data-i18n="faq.label">שאלות נפוצות</div>
+    <div class="faq-list">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q1">כמה זמן לוקח פרויקט?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a1">תלוי בסוג הפרויקט. מונטאז' רגיל — 3-5 ימים. אתר — 7-14 ימים. צילום — מתואם לפי לוח הזמנים שלך.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q2">איך מתחילים לעבוד?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a2">שולחים הודעה בטופס או באינסטגרם, מסבירים את הפרויקט, מסכימים על מחיר ומועד — ומתחילים.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q3">מה כולל המחיר?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a3">המחיר כולל את כל העבודה המפורטת בחבילה. תיקונים עד 5 פעמים — בחינם. כל תיקון נוסף מעבר לכך — בתשלום נפרד.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q4">האם יש מקדמה?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a4">כן, 50% מקדמה לפני תחילת העבודה. היתרה משולמת עם מסירת הפרויקט הסופי.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q5">עובדים מרחוק?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a5">כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל. הכל מתנהל אונליין בצורה נוחה ומהירה.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── GUARANTEE ── -->
+  <section id="guarantee">
+    <div class="section-label" data-i18n="guarantee.label">גרנטיה</div>
+    <div class="guarantee-grid">
+      <div class="guarantee-icon">✦</div>
+      <div class="guarantee-text">
+        <h2 class="guarantee-title" data-i18n="guarantee.title">אחריות החזר כספי</h2>
+        <p class="guarantee-desc" data-i18n="guarantee.desc">אם לאחר 5 תיקונים הפרויקט עדיין לא עומד בציפיותיך — נחזיר לך את מלוא הסכום ששילמת, למעט מקדמה ראשונית. אנחנו עובדים עד שאתה מרוצה.</p>
+        <div class="guarantee-badges">
+          <div class="guarantee-badge">
+            <span class="badge-num" data-target="5" data-suffix="">0</span>
+            <span class="badge-label" data-i18n="guarantee.revisions">תיקונים חינם</span>
+          </div>
+          <div class="guarantee-badge">
+            <span class="badge-num">100%</span>
+            <span class="badge-label" data-i18n="guarantee.refund">החזר כספי</span>
+          </div>
+          <div class="guarantee-badge">
+            <span class="badge-num">0</span>
+            <span class="badge-label" data-i18n="guarantee.risk">סיכון</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1216,7 +1364,7 @@
         'video.note': '⬆ להוספת וידאו — החלף את "YOUR_VIDEO_ID" בקוד הסרטון מYouTube',
         'site.btn': 'פתח אתר ↗',
         'site.current': 'האתר הנוכחי',
-        'insta.label': 'עקוב באינסטגרם',
+        'insta.label':'עקוב באינסטגרם','insta.desc':'עוקבים אחרי תהליכי העבודה, עבודות אחרונות, רילסים ותוכן יומיומי — הכל באינסטגרם.','insta.cta':'צפה בעבודות ↗',
         'insta.cta': 'צפה בעבודות ↗',
         'site.next': 'הפרויקט הבא שלך',
         'site.next.sub': 'בואו נדבר ↗',
@@ -1239,6 +1387,18 @@
         'vid.cat3': 'צילום', 'vid.title3': 'פרויקט 03',
         'vid.cat4': 'תסריט', 'vid.title4': 'פרויקט 04',
         'vid.cat5': 'עריכת וידאו', 'vid.title5': 'פרויקט 05',
+        'guarantee.label': 'אחריות',
+        'guarantee.title': 'אחריות החזר כספי',
+        'guarantee.desc': 'אם לאחר 5 תיקונים הפרויקט עדיין לא עומד בציפיותיך — נחזיר לך את מלוא הסכום ששילמת, למעט מקדמה ראשונית. אנחנו עובדים עד שאתה מרוצה.',
+        'guarantee.revisions': 'תיקונים חינם',
+        'guarantee.refund': 'החזר כספי',
+        'guarantee.risk': 'סיכון',
+        'pricing.label':'מחירים','pricing.buy':'רכישה',
+        'pricing.filming.title':'צילום וידאו','pricing.filming.1':'צילום וידאו אחד','pricing.filming.2':'חבילת 5 סרטונים','pricing.filming.3':'חבילת 10 סרטונים',
+        'pricing.editing.title':"מונטאז'",'pricing.editing.1':"מונטאז' דקה אחת",'pricing.editing.2':"מונטאז' 10 דקות",'pricing.editing.3':"מונטאז' 30 דקות",
+        'pricing.web.title':'אתרים','pricing.web.1':'אתר מלא + דומיין','pricing.web.2':"אתר + לנדינג פייג'",'pricing.web.3':"לנדינג פייג'",'pricing.web.4':'לנדינג + בוט אוטומטי','pricing.landing.title':"לנדינג פייג'",'pricing.landing.1':"לנדינג פייג' אחד",'pricing.landing.2':'לנדינג + בוט אוטומטי',
+        'modal.title':'תודה רבה!','modal.desc':'קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם.','modal.close':'סגור',
+        'faq.label':'שאלות נפוצות','faq.q1':'כמה זמן לוקח פרויקט?','faq.a1':'תלוי בסוג הפרויקט. מונטאז\' רגיל — 3-5 ימים. אתר — 7-14 ימים. צילום — מתואם לפי לוח הזמנים שלך.','faq.q2':'איך מתחילים לעבוד?','faq.a2':'שולחים הודעה בטופס או באינסטגרם, מסבירים את הפרויקט, מסכימים על מחיר ומועד — ומתחילים.','faq.q3':'מה כולל המחיר?','faq.a3':'המחיר כולל את כל העבודה המפורטת בחבילה. תיקונים עד 5 פעמים — בחינם.','faq.q4':'האם יש מקדמה?','faq.a4':'כן, 50% מקדמה לפני תחילת העבודה. היתרה משולמת עם מסירת הפרויקט הסופי.','faq.q5':'עובדים מרחוק?','faq.a5':'כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל.',
       },
       ru: {
         'nav.about': 'Обо мне',
@@ -1279,7 +1439,7 @@
         'video.note': '⬆ Чтобы добавить видео — замените "YOUR_VIDEO_ID" на код видео с YouTube',
         'site.btn': 'Открыть сайт ↗',
         'site.current': 'Текущий сайт',
-        'insta.label': 'Подписывайся в Instagram',
+        'insta.label':'Подписывайся','insta.desc':'Процессы работы, последние проекты, рилсы и ежедневный контент — всё в Instagram.','insta.cta':'Смотреть работы ↗',
         'insta.cta': 'Смотреть работы ↗',
         'site.next': 'Твой следующий проект',
         'site.next.sub': 'Давай поговорим ↗',
@@ -1302,6 +1462,18 @@
         'vid.cat3': 'Съёмка', 'vid.title3': 'Проект 03',
         'vid.cat4': 'Сценарий', 'vid.title4': 'Проект 04',
         'vid.cat5': 'Монтаж видео', 'vid.title5': 'Проект 05',
+        'guarantee.label': 'Гарантия',
+        'guarantee.title': 'Гарантия возврата',
+        'guarantee.desc': 'Если после 5 правок проект всё ещё не соответствует ожиданиям — возвращаем всю сумму кроме предоплаты. Работаем пока вы не довольны.',
+        'guarantee.revisions': 'Правок бесплатно',
+        'guarantee.refund': 'Возврат денег',
+        'guarantee.risk': 'Риск',
+        'pricing.label':'Цены','pricing.buy':'Купить',
+        'pricing.filming.title':'Съёмка видео','pricing.filming.1':'Съёмка 1 видео','pricing.filming.2':'Пакет 5 видео','pricing.filming.3':'Пакет 10 видео',
+        'pricing.editing.title':'Монтаж','pricing.editing.1':'Монтаж 1 минута','pricing.editing.2':'Монтаж 10 минут','pricing.editing.3':'Монтаж 30 минут',
+        'pricing.web.title':'Сайты','pricing.web.1':'Полный сайт + домен','pricing.web.2':'Сайт + лендинг','pricing.web.3':'Лендинг пейдж','pricing.web.4':'Лендинг + бот','pricing.landing.title':'Лендинг пейдж','pricing.landing.1':'Один лендинг пейдж','pricing.landing.2':'Лендинг + бот',
+        'modal.title':'Спасибо!','modal.desc':'Мы получили ваш запрос. Свяжемся с вами в ближайшее время.','modal.close':'Закрыть',
+        'faq.label':'FAQ','faq.q1':'Сколько времени занимает проект?','faq.a1':'Зависит от типа. Монтаж — 3-5 дней. Сайт — 7-14 дней. Съёмка — по вашему графику.','faq.q2':'Как начать работу?','faq.a2':'Напишите в форме или Instagram, объясните проект, согласуем цену и сроки — начинаем.','faq.q3':'Что включает цена?','faq.a3':'Всё что указано в пакете. До 5 правок — бесплатно. Каждая следующая — отдельно.','faq.q4':'Есть ли предоплата?','faq.a4':'Да, 50% предоплата до начала работы. Остаток — при сдаче финального проекта.','faq.q5':'Работаете удалённо?','faq.a5':'Да! Работаем с клиентами по всему Израилю и за рубежом. Всё онлайн.',
       },
       en: {
         'nav.about': 'About',
@@ -1342,7 +1514,7 @@
         'video.note': '⬆ To add video — replace "YOUR_VIDEO_ID" with your YouTube video code',
         'site.btn': 'Visit Site ↗',
         'site.current': 'Current Site',
-        'insta.label': 'Follow on Instagram',
+        'insta.label':'Follow me','insta.desc':'Behind the scenes, recent work, reels and daily content — all on Instagram.','insta.cta':'View Work ↗',
         'insta.cta': 'View Work ↗',
         'site.next': 'Your Next Project',
         'site.next.sub': "Let's talk ↗",
@@ -1365,6 +1537,18 @@
         'vid.cat3': 'Filming', 'vid.title3': 'Project 03',
         'vid.cat4': 'Script', 'vid.title4': 'Project 04',
         'vid.cat5': 'Video Editing', 'vid.title5': 'Project 05',
+        'guarantee.label': 'Guarantee',
+        'guarantee.title': 'Money-Back Guarantee',
+        'guarantee.desc': 'If after 5 revisions the project still does not meet your expectations — we refund the full amount except the initial deposit. We work until you are satisfied.',
+        'guarantee.revisions': 'Free Revisions',
+        'guarantee.refund': 'Money Back',
+        'guarantee.risk': 'Risk',
+        'pricing.label':'Pricing','pricing.buy':'Buy',
+        'pricing.filming.title':'Video Filming','pricing.filming.1':'1 Video Shoot','pricing.filming.2':'5 Videos Package','pricing.filming.3':'10 Videos Package',
+        'pricing.editing.title':'Editing','pricing.editing.1':'1 Minute Edit','pricing.editing.2':'10 Minutes Edit','pricing.editing.3':'30 Minutes Edit',
+        'pricing.web.title':'Websites','pricing.web.1':'Full Site + Domain','pricing.web.2':'Site + Landing Page','pricing.web.3':'Landing Page','pricing.web.4':'Landing + Bot','pricing.landing.title':'Landing Page','pricing.landing.1':'One Landing Page','pricing.landing.2':'Landing + Bot',
+        'modal.title':'Thank You!','modal.desc':'We received your request. We will contact you shortly.','modal.close':'Close',
+        'faq.label':'FAQ','faq.q1':'How long does a project take?','faq.a1':'Depends on the type. Editing — 3-5 days. Website — 7-14 days. Filming — scheduled by your availability.','faq.q2':'How do we start?','faq.a2':'Send a message via the form or Instagram, explain the project, agree on price and timeline — we start.','faq.q3':'What does the price include?','faq.a3':'Everything listed in the package. Up to 5 revisions — free. Each additional one is charged separately.','faq.q4':'Is there a deposit?','faq.a4':'Yes, 50% deposit before work begins. The rest is paid upon delivery of the final project.','faq.q5':'Do you work remotely?','faq.a5':'Yes! We work with clients across Israel and abroad. Everything is handled online.',
       }
     };
 
@@ -1414,16 +1598,59 @@
       btn.disabled = true;
     }
 
-    // ── SCROLL FADE IN ──
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    // ── THANK YOU MODAL ──
+    function showThankYou() {
+      document.getElementById('thankYouModal').classList.add('active');
+    }
+    function hideThankYou() {
+      document.getElementById('thankYouModal').classList.remove('active');
+    }
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    // ── FAQ TOGGLE ──
+    function toggleFaq(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+
+    // ── SCROLL FADE IN ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── ANIMATED COUNTERS ──
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const suffix = el.getAttribute('data-suffix') || '';
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current) + suffix;
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+      entry.target.classList.add('counted');
+      animateCounter(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
   </script>
 </body>
 </html>
