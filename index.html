@@ -433,7 +433,39 @@
     .insta-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; }
     .insta-cta-btn { display: inline-block; margin-top: 8px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #0a0a0a; background: #fff; padding: 14px 28px; text-decoration: none; border-radius: 2px; font-weight: 500; transition: opacity 0.2s; align-self: flex-start; }
     .insta-cta-btn:hover { opacity: 0.85; }
-    @media (max-width: 900px) { .portfolio-grid { grid-template-columns: 1fr; } .insta-photo-wrap { min-height: 300px; } }
+    @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-center { display: none; }
+    #hero { padding: 0 20px 60px; }
+    .hero-title { font-size: clamp(56px, 18vw, 100px); }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .hero-sub { font-size: 15px; max-width: 100%; }
+    .scroll-indicator { display: none; }
+    section { padding: 60px 20px; }
+    #about .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-text h2 { font-size: 40px; }
+    .about-stats { gap: 24px; }
+    #services .services-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-top { grid-template-columns: 1fr !important; height: auto !important; }
+    .insta-photo-wrap { min-height: 280px; }
+    .insta-text-side { padding: 24px 20px; }
+    .insta-handle { font-size: 28px; }
+    .portfolio-bottom { grid-template-columns: 1fr !important; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .faq-list { max-width: 100%; }
+    #contact .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-heading { font-size: 48px; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .guarantee-grid { grid-template-columns: 1fr; gap: 20px; }
+    .guarantee-icon { display: none; }
+    .guarantee-badges { gap: 24px; flex-wrap: wrap; }
+   }
+@media (max-width: 480px) {
+  #services .services-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .hero-cta { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-ghost { text-align: center; width: 100%; }
+}
     .insta-corner-tag {
       position: absolute;
       top: 20px;
