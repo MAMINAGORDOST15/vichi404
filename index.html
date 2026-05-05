@@ -2,11 +2,14 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('82P5aB2cmLM-qPaC9');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VICHI404 — מדיה ועריכה</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,7 +38,7 @@
     /* Hebrew font override */
     [lang="he"] body,
     .he-text {
-      font-family: 'Frank Ruhl Libre', 'DM Sans', sans-serif;
+      font-family: 'Heebo', 'DM Sans', sans-serif;
     }
 
     /* ── NOISE OVERLAY ── */
@@ -108,6 +111,7 @@
     .lang-btn.active { border-color: rgba(255,255,255,0.6); color: #fff; background: rgba(255,255,255,0.06); }
 
     /* ── HERO ── */
+    #particles-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
     #hero {
       min-height: 100vh;
       display: flex;
@@ -399,7 +403,7 @@
       color: rgba(255,255,255,0.8);
       margin-bottom: 12px;
       font-weight: 500;
-      font-family: 'Frank Ruhl Libre', 'DM Sans', sans-serif;
+      font-family: 'Heebo', 'DM Sans', sans-serif;
     }
     .svc-desc {
       font-size: 15px;
@@ -416,9 +420,11 @@
     }
 
     /* Instagram Banner — new layout */
-    .portfolio-grid { display: grid; grid-template-columns: 1fr 420px; gap: 2px; min-height: 320px; max-height: 320px; }
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 420px; gap: 2px; }
+    .portfolio-top { display: grid; grid-template-columns: 420px 1fr; gap: 2px; height: 320px; }
+    .portfolio-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 2px; }
     .insta-photo-wrap { position: relative; overflow: hidden; }
-    .insta-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; filter: grayscale(20%) brightness(0.8); transition: filter 0.5s, transform 0.6s; }
+    .insta-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; filter: grayscale(20%) brightness(0.8); transition: filter 0.5s, transform 0.6s; }
     .insta-photo-wrap:hover .insta-photo { filter: grayscale(0%) brightness(0.9); transform: scale(1.03); }
     .insta-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to left, rgba(10,10,10,0.4), transparent); pointer-events: none; }
     .insta-text-side { background: var(--bg2); border: 0.5px solid var(--line); display: flex; flex-direction: column; justify-content: center; padding: 32px 32px; gap: 14px; }
@@ -428,7 +434,39 @@
     .insta-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; }
     .insta-cta-btn { display: inline-block; margin-top: 8px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #0a0a0a; background: #fff; padding: 14px 28px; text-decoration: none; border-radius: 2px; font-weight: 500; transition: opacity 0.2s; align-self: flex-start; }
     .insta-cta-btn:hover { opacity: 0.85; }
-    @media (max-width: 900px) { .portfolio-grid { grid-template-columns: 1fr; } .insta-photo-wrap { min-height: 300px; } }
+    @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-center { display: none; }
+    #hero { padding: 0 20px 60px; }
+    .hero-title { font-size: clamp(56px, 18vw, 100px); }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .hero-sub { font-size: 15px; max-width: 100%; }
+    .scroll-indicator { display: none; }
+    section { padding: 60px 20px; }
+    #about .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-text h2 { font-size: 40px; }
+    .about-stats { gap: 24px; }
+    #services .services-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-top { grid-template-columns: 1fr !important; height: auto !important; }
+    .insta-photo-wrap { min-height: 280px; }
+    .insta-text-side { padding: 24px 20px; }
+    .insta-handle { font-size: 28px; }
+    .portfolio-bottom { grid-template-columns: 1fr !important; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .faq-list { max-width: 100%; }
+    #contact .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-heading { font-size: 48px; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .guarantee-grid { grid-template-columns: 1fr; gap: 20px; }
+    .guarantee-icon { display: none; }
+    .guarantee-badges { gap: 24px; flex-wrap: wrap; }
+   }
+@media (max-width: 480px) {
+  #services .services-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .hero-cta { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-ghost { text-align: center; width: 100%; }
+}
     .insta-corner-tag {
       position: absolute;
       top: 20px;
@@ -444,6 +482,14 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+    }
+    .site-card { display: flex; flex-direction: column; background: var(--bg3); border: 0.5px solid var(--line); text-decoration: none; overflow: hidden; transition: border-color 0.3s; min-height: 200px; }
+    .site-card:hover { border-color: rgba(255,255,255,0.2); }
+    .site-card-bar { background: var(--bg2); padding: 8px 12px; display: flex; align-items: center; gap: 6px; border-bottom: 0.5px solid var(--line); flex-shrink: 0; }
+    .site-card-screen { flex: 1; overflow: hidden; min-height: 160px; background: var(--bg3); }
+    .site-card-footer { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--line); flex-shrink: 0; }
+    .site-visit-btn { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.18); padding: 7px 14px; border-radius: 2px; white-space: nowrap; transition: background 0.2s; }
+    .site-card:hover .site-visit-btn { background: rgba(255,255,255,0.15); 
     }
     .site-card {
       flex: 1;
@@ -714,7 +760,7 @@
     }
 
     /* ── PRICING ── */
-    #pricing { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    #pricing { padding: 60px 48px; border-top: 0.5px solid var(--line); }
     .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
     .pricing-table { background: var(--bg2); border: 0.5px solid var(--line); padding: 32px 28px; display: flex; flex-direction: column; gap: 0; }
     .pricing-table-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 0.5px solid var(--line); }
@@ -937,6 +983,7 @@
   <!-- ── HERO ── -->
   <section id="hero">
     <div class="hero-bg-lines"></div>
+    <canvas id="particles-canvas"></canvas>
     <div>
       <p class="hero-tag" data-i18n="hero.tag">מדיה · עריכה · יצירה · אתרים</p>
       <h1 class="hero-title">
@@ -1038,7 +1085,7 @@
   <section id="portfolio">
     <div class="section-label" data-i18n="portfolio.label">פורטפוליו</div>
 
-    <div class="portfolio-grid">
+    <div class="portfolio-top" id="portfolio-top">
 
       <!-- LEFT — Instagram Photo -->
       <div class="insta-photo-wrap">
@@ -1060,29 +1107,40 @@
         <p class="insta-desc" data-i18n="insta.desc">עוקבים אחרי תהליכי העבודה, עבודות אחרונות, רילסים ותוכן יומיומי — הכל באינסטגרם.</p>
         <a class="insta-cta-btn" href="https://www.instagram.com/Vichi_404" target="_blank" rel="noopener" data-i18n="insta.cta">צפה בעבודות ↗</a>
       </div>
+    </div>
 
-        <!-- vichi404 -->
-        <a class="site-card" href="https://www.vichi404.com" target="_blank" rel="noopener">
-          <div class="site-card-bar">
-            <div class="dot dot-r"></div>
-            <div class="dot dot-y"></div>
-            <div class="dot dot-g"></div>
-            <span class="site-url">vichi404.com</span>
-          </div>
-          <div class="site-card-screen" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:rgba(255,255,255,0.15);letter-spacing:4px;">VICHI404</span>
-            <span style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.2);text-transform:uppercase;" data-i18n="site.current">האתר הנוכחי</span>
-          </div>
-          <div class="site-card-footer">
-            <div>
-              <div class="site-name">vichi404.com</div>
-              <div class="site-tech">HTML · Node.js · Railway</div>
-            </div>
-            <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
-          </div>
-        </a>
+    <div class="portfolio-bottom">
 
-      </div>
+      <!-- inKlab -->
+      <a class="site-card" href="https://www.inklabschool.com" target="_blank" rel="noopener">
+        <div class="site-card-bar">
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+          <span class="site-url">inklabschool.com</span>
+        </div>
+        <div class="site-card-screen">
+          <img src="images/inklab-screen.jpg" alt="inKlab" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="site-card-footer">
+          <div><div class="site-name">inKlab School</div><div class="site-tech">React · Railway · Custom Design</div></div>
+          <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
+        </div>
+      </a>
+
+      <!-- vichi404 -->
+      <a class="site-card" href="https://www.vichi404.com" target="_blank" rel="noopener">
+        <div class="site-card-bar">
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+          <span class="site-url">vichi404.com</span>
+        </div>
+        <div class="site-card-screen">
+          <img src="images/vichi404-screen.jpg" alt="vichi404" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="site-card-footer">
+          <div><div class="site-name">vichi404.com</div><div class="site-tech">HTML · Node.js · Railway</div></div>
+          <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
+        </div>
+      </a>
+
     </div>
   </section>
 
@@ -1185,8 +1243,6 @@
           <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
         </div>
       </div>
-
-    </div>
 
     </div>
   </section>
@@ -1303,8 +1359,8 @@
           <input type="text" data-i18n-placeholder="form.name.ph" placeholder="השם שלך" required />
         </div>
         <div class="form-field">
-          <label data-i18n="form.email">אימייל</label>
-          <input type="email" placeholder="your@email.com" required />
+          <label data-i18n="form.contact">איך ליצור קשר</label>
+          <input type="text" id="contact-info" data-i18n-placeholder="form.contact.ph" placeholder="אימייל / טלפון / אינסטגרם" required />
         </div>
         <div class="form-field">
           <label data-i18n="form.message">הודעה</label>
@@ -1378,7 +1434,7 @@
         'contact.whatsapp': 'WhatsApp',
         'form.name': 'שם',
         'form.name.ph': 'השם שלך',
-        'form.email': 'אימייל',
+        'form.contact': 'איך ליצור קשר', 'form.contact.ph': 'אימייל / טלפון / אינסטגרם',
         'form.message': 'הודעה',
         'form.message.ph': 'ספר לי על הפרויקט שלך...',
         'form.submit': 'שלח הודעה →',
@@ -1453,7 +1509,7 @@
         'contact.whatsapp': 'WhatsApp',
         'form.name': 'Имя',
         'form.name.ph': 'Ваше имя',
-        'form.email': 'Эл. почта',
+        'form.contact': 'Как связаться', 'form.contact.ph': 'Email / Телефон / Instagram',
         'form.message': 'Сообщение',
         'form.message.ph': 'Расскажите о вашем проекте...',
         'form.submit': 'Отправить →',
@@ -1528,7 +1584,7 @@
         'contact.whatsapp': 'WhatsApp',
         'form.name': 'Name',
         'form.name.ph': 'Your name',
-        'form.email': 'Email',
+        'form.contact': 'How to contact', 'form.contact.ph': 'Email / Phone / Instagram',
         'form.message': 'Message',
         'form.message.ph': 'Tell me about your project...',
         'form.submit': 'Send Message →',
@@ -1592,10 +1648,23 @@
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.form-submit');
-      const msgs = { he: 'נשלח! אחזור אליך בקרוב ✓', ru: 'Отправлено! Скоро отвечу ✓', en: 'Sent! I\'ll get back to you soon ✓' };
-      btn.textContent = msgs[currentLang];
-      btn.style.opacity = '0.6';
+      const originalText = btn.textContent;
+      btn.textContent = '...';
       btn.disabled = true;
+
+      emailjs.send('service_49frxio', 'template_kc80cde', {
+        from_name: e.target.querySelector('input[type="text"]').value,
+        from_email: document.getElementById('contact-info').value,
+        message: e.target.querySelector('textarea').value,
+      }).then(() => {
+        showThankYou();
+        e.target.reset();
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }).catch(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      });
     }
 
     // ── THANK YOU MODAL ──
@@ -1649,6 +1718,48 @@ const counterObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.5 });
+
+// ── PARTICLES ──
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      const hero = document.getElementById('hero');
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5 + 0.3,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: -Math.random() * 0.4 - 0.1,
+        opacity: Math.random() * 0.5 + 0.1,
+      };
+    }
+
+    for (let i = 0; i < 120; i++) particles.push(createParticle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.opacity -= 0.0008;
+        if (p.y < 0 || p.opacity <= 0) particles[i] = createParticle();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
 
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
   </script>
