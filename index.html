@@ -1826,6 +1826,43 @@ const counterObserver = new IntersectionObserver((entries) => {
     animateParticles();
 
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
+
+// ── CUSTOM CURSOR ──
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '52px';
+        ring.style.height = '52px';
+        ring.style.borderColor = 'rgba(255,255,255,0.8)';
+        dot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+        ring.style.borderColor = 'rgba(255,255,255,0.4)';
+        dot.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
   </script>
   <!-- WhatsApp Button -->
 <a class="whatsapp-btn" href="https://wa.me/972547374402" target="_blank" rel="noopener">
