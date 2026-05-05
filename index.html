@@ -1325,8 +1325,8 @@
           <input type="text" data-i18n-placeholder="form.name.ph" placeholder="השם שלך" required />
         </div>
         <div class="form-field">
-          <label data-i18n="form.email">אימייל</label>
-          <input type="email" placeholder="your@email.com" required />
+          <label data-i18n="form.contact">איך ליצור קשר</label>
+          <input type="text" id="contact-info" data-i18n-placeholder="form.contact.ph" placeholder="אימייל / טלפון / אינסטגרם" required />
         </div>
         <div class="form-field">
           <label data-i18n="form.message">הודעה</label>
@@ -1400,7 +1400,7 @@
         'contact.whatsapp': 'WhatsApp',
         'form.name': 'שם',
         'form.name.ph': 'השם שלך',
-        'form.email': 'אימייל',
+        'form.contact': 'איך ליצור קשר', 'form.contact.ph': 'אימייל / טלפון / אינסטגרם',
         'form.message': 'הודעה',
         'form.message.ph': 'ספר לי על הפרויקט שלך...',
         'form.submit': 'שלח הודעה →',
@@ -1475,7 +1475,7 @@
         'contact.whatsapp': 'WhatsApp',
         'form.name': 'Имя',
         'form.name.ph': 'Ваше имя',
-        'form.email': 'Эл. почта',
+        'form.contact': 'Как связаться', 'form.contact.ph': 'Email / Телефон / Instagram',
         'form.message': 'Сообщение',
         'form.message.ph': 'Расскажите о вашем проекте...',
         'form.submit': 'Отправить →',
@@ -1550,7 +1550,7 @@
         'contact.whatsapp': 'WhatsApp',
         'form.name': 'Name',
         'form.name.ph': 'Your name',
-        'form.email': 'Email',
+        'form.contact': 'How to contact', 'form.contact.ph': 'Email / Phone / Instagram',
         'form.message': 'Message',
         'form.message.ph': 'Tell me about your project...',
         'form.submit': 'Send Message →',
@@ -1620,7 +1620,7 @@
 
       emailjs.send('service_49frxio', 'template_kc80cde', {
         from_name: e.target.querySelector('input[type="text"]').value,
-        from_email: e.target.querySelector('input[type="email"]').value,
+        from_email: document.getElementById('contact-info').value,
         message: e.target.querySelector('textarea').value,
       }).then(() => {
         showThankYou();
