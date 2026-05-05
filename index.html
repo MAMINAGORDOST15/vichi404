@@ -1693,8 +1693,9 @@ const counterObserver = new IntersectionObserver((entries) => {
     let particles = [];
 
     function resizeCanvas() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const hero = document.getElementById('hero');
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
