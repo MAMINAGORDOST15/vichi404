@@ -27,7 +27,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -158,13 +158,13 @@
     }
 
     .hero-sub {
-      font-size: 15px;
-      color: rgba(255,255,255,0.45);
-      max-width: 400px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
       line-height: 1.8;
-      font-weight: 300;
+      font-weight: 400;
     }
-    .hero-sub strong { color: rgba(255,255,255,0.75); font-weight: 400; }
+    .hero-sub strong { color: rgba(255,255,255,0.9); font-weight: 500; }
 
     .hero-cta {
       display: flex;
@@ -335,14 +335,14 @@
       letter-spacing: 2px;
     }
     .about-text p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.5);
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
       line-height: 1.9;
       margin-bottom: 20px;
     }
     .about-text p strong {
-      color: rgba(255,255,255,0.85);
-      font-weight: 400;
+      color: rgba(255,255,255,0.95);
+      font-weight: 500;
     }
 
     .about-stats {
@@ -402,8 +402,8 @@
       font-family: 'Frank Ruhl Libre', 'DM Sans', sans-serif;
     }
     .svc-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
       line-height: 1.7;
     }
 
@@ -670,8 +670,8 @@
       margin-bottom: 28px;
     }
     .contact-sub {
-      font-size: 14px;
-      color: var(--muted);
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
       line-height: 1.8;
       margin-bottom: 40px;
     }
@@ -816,7 +816,6 @@
       <a href="#about" data-i18n="nav.about">אודות</a>
       <a href="#services" data-i18n="nav.services">שירותים</a>
       <a href="#portfolio" data-i18n="nav.portfolio">פורטפוליו</a>
-      <a href="#workspace" data-i18n="nav.workspace">סטודיו</a>
       <a href="#contact" data-i18n="nav.contact">צור קשר</a>
     </div>
     <div class="lang-switch">
@@ -957,37 +956,37 @@
 
         <!-- CARD 1 — FEATURED (big, 2 columns wide) -->
         <a class="video-card featured" href="https://www.instagram.com/p/DTbALUlkRLo/" target="_blank" rel="noopener">
-          <div class="video-card-placeholder"></div>
+          <img class="video-card-thumb" src="images/thumb-1.jpg" alt="Быть глухим">
           <div class="video-card-overlay"></div>
           <div class="video-play-btn">▶</div>
           <span class="video-card-arrow">↗</span>
           <div class="video-card-info">
             <div class="video-card-category" data-i18n="vid.cat1">עריכת וידאו</div>
-            <div class="video-card-title" data-i18n="vid.title1">פרויקט 01</div>
+            <div class="video-card-title">БЫТЬ ГЛУХИМ?</div>
           </div>
         </a>
 
         <!-- CARD 2 -->
         <a class="video-card" href="https://www.instagram.com/p/DTF0tAFgAwQ/" target="_blank" rel="noopener">
-          <div class="video-card-placeholder"></div>
+          <img class="video-card-thumb" src="images/thumb-2.jpg" alt="Freedom">
           <div class="video-card-overlay"></div>
           <div class="video-play-btn">▶</div>
           <span class="video-card-arrow">↗</span>
           <div class="video-card-info">
             <div class="video-card-category" data-i18n="vid.cat2">מונטאז'</div>
-            <div class="video-card-title" data-i18n="vid.title2">פרויקט 02</div>
+            <div class="video-card-title">FREEDOM</div>
           </div>
         </a>
 
         <!-- CARD 3 -->
         <a class="video-card" href="https://www.instagram.com/p/DSUsnSzEV9u/" target="_blank" rel="noopener">
-          <div class="video-card-placeholder"></div>
+          <img class="video-card-thumb" src="images/thumb-3.jpg" alt="Докажи">
           <div class="video-card-overlay"></div>
           <div class="video-play-btn">▶</div>
           <span class="video-card-arrow">↗</span>
           <div class="video-card-info">
             <div class="video-card-category" data-i18n="vid.cat3">צילום</div>
-            <div class="video-card-title" data-i18n="vid.title3">פרויקט 03</div>
+            <div class="video-card-title">ДОКАЖИ.</div>
           </div>
         </a>
 
@@ -1004,13 +1003,15 @@
             <div class="dot dot-g"></div>
             <span class="site-url">inklabschool.com</span>
           </div>
-          <div class="site-screen">
-            <span style="font-size:28px;opacity:0.15">◻</span>
-            <span style="font-size:10px;letter-spacing:2px;color:var(--muted)" data-i18n="site.screenshot">צילום מסך</span>
+          <div class="site-screen" style="padding:0;overflow:hidden;">
+            <img src="images/inklab-screen.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
-          <div class="site-info">
-            <div class="site-name">inKlab School</div>
-            <div class="site-tech">React · Railway · Custom Design</div>
+          <div class="site-info" style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div class="site-name">inKlab School</div>
+              <div class="site-tech">React · Railway · Custom Design</div>
+            </div>
+            <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:2px;white-space:nowrap;" data-i18n="site.btn">פתח אתר ↗</span>
           </div>
         </a>
         <div class="site-item">
@@ -1028,22 +1029,6 @@
             <div class="site-tech" data-i18n="site.next.sub">בואו נדבר ↗</div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WORKSPACE / STUDIO ── -->
-  <section id="workspace">
-    <div class="section-label" data-i18n="workspace.label">סטודיו</div>
-    <div class="workspace-grid">
-      <div class="ws-frame fade-up">
-        <img src="images/photo-studio.jpg" alt="Studio">
-      </div>
-      <div class="ws-frame fade-up">
-        <img src="images/photo-about.jpg" alt="Creator">
-      </div>
-      <div class="ws-frame fade-up">
-        <div class="ws-placeholder" data-i18n="ws.photo3">תמונה 03</div>
       </div>
     </div>
   </section>
@@ -1135,7 +1120,7 @@
         'video.placeholder2': 'פרויקט 02',
         'video.placeholder3': 'פרויקט 03',
         'video.note': '⬆ להוספת וידאו — החלף את "YOUR_VIDEO_ID" בקוד הסרטון מYouTube',
-        'site.screenshot': 'צילום מסך',
+        'site.btn': 'פתח אתר ↗',
         'site.next': 'הפרויקט הבא שלך',
         'site.next.sub': 'בואו נדבר ↗',
         'workspace.label': 'סטודיו',
@@ -1195,7 +1180,7 @@
         'video.placeholder2': 'Проект 02',
         'video.placeholder3': 'Проект 03',
         'video.note': '⬆ Чтобы добавить видео — замените "YOUR_VIDEO_ID" на код видео с YouTube',
-        'site.screenshot': 'Скриншот',
+        'site.btn': 'Открыть сайт ↗',
         'site.next': 'Твой следующий проект',
         'site.next.sub': 'Давай поговорим ↗',
         'workspace.label': 'Студия',
@@ -1255,7 +1240,7 @@
         'video.placeholder2': 'Project 02',
         'video.placeholder3': 'Project 03',
         'video.note': '⬆ To add video — replace "YOUR_VIDEO_ID" with your YouTube video code',
-        'site.screenshot': 'Screenshot',
+        'site.btn': 'Visit Site ↗',
         'site.next': 'Your Next Project',
         'site.next.sub': "Let's talk ↗",
         'workspace.label': 'Studio',
