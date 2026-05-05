@@ -2,6 +2,34 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L90YVNWZPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L90YVNWZPN');
+</script>
+<meta name="google-site-verification" content="LCW14zoH8fyry50WjfQaDcGgsdJU-Oc6U2DNgPjJ-Sc" />
+<!-- SEO -->
+<meta name="description" content="VICHI404 — עריכת וידאו, צילום קולנועי, כתיבת תסריטים ובניית אתרים. מדיה מקצועית לכל פרויקט.">
+<meta name="keywords" content="עריכת וידאו, צילום, תסריטים, אתרים, לנדינג פייג, מדיה, ישראל">
+<meta name="author" content="VICHI404">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.vichi404.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.vichi404.com">
+<meta property="og:title" content="VICHI404 — מדיה ועריכה">
+<meta property="og:description" content="עריכת וידאו, צילום קולנועי, כתיבת תסריטים ובניית אתרים — הכל תחת קורת גג אחת.">
+<meta property="og:image" content="https://www.vichi404.com/images/photo-insta.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VICHI404 — מדיה ועריכה">
+<meta name="twitter:description" content="עריכת וידאו, צילום קולנועי, כתיבת תסריטים ובניית אתרים.">
+<meta name="twitter:image" content="https://www.vichi404.com/images/photo-insta.jpg">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init('82P5aB2cmLM-qPaC9');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -776,6 +804,7 @@
     .price-old { font-size: 13px; color: #e05555; text-decoration: line-through; margin-right: 8px; font-weight: 500; }
     .pricing-buy-btn { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 11px 20px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; transition: opacity 0.2s; align-self: flex-start; }
     .pricing-buy-btn:hover { opacity: 0.8; }
+
     /* MODAL */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
     .modal-overlay.active { display: flex; }
@@ -785,6 +814,17 @@
     .modal-desc { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 32px; }
     .modal-close { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 32px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; }
     @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    /* Timer */
+    #timer { padding: 40px 48px; background: rgba(255,30,30,0.06); border-bottom: 0.5px solid rgba(255,50,50,0.2); border-top: 0.5px solid rgba(255,50,50,0.2); }
+    .timer-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .timer-text { font-size: 16px; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
+    .timer-countdown { display: flex; align-items: center; gap: 8px; }
+    .timer-block { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .timer-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #ff4444; line-height: 1; min-width: 64px; text-align: center; }
+    .timer-sep { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #ff4444; line-height: 1; margin-bottom: 20px; }
+    .timer-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    @media (max-width: 768px) { #timer { padding: 32px 20px; } .timer-num { font-size: 40px; } .timer-sep { font-size: 40px; } }
 
     /* ── FAQ ── */
     #faq { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
@@ -960,9 +1000,30 @@
       #contact .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       footer { padding: 24px; flex-direction: column; gap: 12px; }
     }
+
+    /* Back to Top */
+    .back-to-top { position: fixed; bottom: 28px; right: 96px; width: 48px; height: 48px; background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.2); color: #fff; font-size: 18px; border-radius: 50%; cursor: none; z-index: 998; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s, background 0.2s; display: flex; align-items: center; justify-content: center; }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); 
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-btn { position: fixed; bottom: 28px; left: 28px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); 
+    }
+
+    /* Custom Cursor */
+    * { cursor: none; }
+    .cursor-dot { position: fixed; width: 6px; height: 6px; background: #fff; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.1s, opacity 0.3s; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.12s; }
+    @media (max-width: 768px) { * { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } 
+    }
+
   </style>
 </head>
 <body>
+  <div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
   <!-- ── NAVIGATION ── -->
   <nav>
@@ -1133,7 +1194,7 @@
           <span class="site-url">vichi404.com</span>
         </div>
         <div class="site-card-screen">
-          <img src="images/vichi404-screen.jpg" alt="vichi404" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="images/vichi404-screen.png" alt="vichi404" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="site-card-footer">
           <div><div class="site-name">vichi404.com</div><div class="site-tech">HTML · Node.js · Railway</div></div>
@@ -1256,6 +1317,29 @@
       <button class="modal-close" onclick="hideThankYou()" data-i18n="modal.close">סגור</button>
     </div>
   </div>
+
+  <!-- ── TIMER ── -->
+<section id="timer">
+  <div class="timer-inner">
+    <div class="timer-text" data-i18n="timer.text">⚡ המחירים האלה בתוקף עוד:</div>
+    <div class="timer-countdown">
+      <div class="timer-block">
+        <span class="timer-num" id="timerH">22</span>
+        <span class="timer-label" data-i18n="timer.hours">שעות</span>
+      </div>
+      <span class="timer-sep">:</span>
+      <div class="timer-block">
+        <span class="timer-num" id="timerM">00</span>
+        <span class="timer-label" data-i18n="timer.minutes">דקות</span>
+      </div>
+      <span class="timer-sep">:</span>
+      <div class="timer-block">
+        <span class="timer-num" id="timerS">00</span>
+        <span class="timer-label" data-i18n="timer.seconds">שניות</span>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ── FAQ ── -->
   <section id="faq">
@@ -1455,6 +1539,7 @@
         'pricing.web.title':'אתרים','pricing.web.1':'אתר מלא + דומיין','pricing.web.2':"אתר + לנדינג פייג'",'pricing.web.3':"לנדינג פייג'",'pricing.web.4':'לנדינג + בוט אוטומטי','pricing.landing.title':"לנדינג פייג'",'pricing.landing.1':"לנדינג פייג' אחד",'pricing.landing.2':'לנדינג + בוט אוטומטי',
         'modal.title':'תודה רבה!','modal.desc':'קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם.','modal.close':'סגור',
         'faq.label':'שאלות נפוצות','faq.q1':'כמה זמן לוקח פרויקט?','faq.a1':'תלוי בסוג הפרויקט. מונטאז\' רגיל — 3-5 ימים. אתר — 7-14 ימים. צילום — מתואם לפי לוח הזמנים שלך.','faq.q2':'איך מתחילים לעבוד?','faq.a2':'שולחים הודעה בטופס או באינסטגרם, מסבירים את הפרויקט, מסכימים על מחיר ומועד — ומתחילים.','faq.q3':'מה כולל המחיר?','faq.a3':'המחיר כולל את כל העבודה המפורטת בחבילה. תיקונים עד 5 פעמים — בחינם.','faq.q4':'האם יש מקדמה?','faq.a4':'כן, 50% מקדמה לפני תחילת העבודה. היתרה משולמת עם מסירת הפרויקט הסופי.','faq.q5':'עובדים מרחוק?','faq.a5':'כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל.',
+        'timer.text':'⚡ המחירים האלה בתוקף עוד:','timer.hours':'שעות','timer.minutes':'דקות','timer.seconds':'שניות',
       },
       ru: {
         'nav.about': 'Обо мне',
@@ -1530,6 +1615,7 @@
         'pricing.web.title':'Сайты','pricing.web.1':'Полный сайт + домен','pricing.web.2':'Сайт + лендинг','pricing.web.3':'Лендинг пейдж','pricing.web.4':'Лендинг + бот','pricing.landing.title':'Лендинг пейдж','pricing.landing.1':'Один лендинг пейдж','pricing.landing.2':'Лендинг + бот',
         'modal.title':'Спасибо!','modal.desc':'Мы получили ваш запрос. Свяжемся с вами в ближайшее время.','modal.close':'Закрыть',
         'faq.label':'FAQ','faq.q1':'Сколько времени занимает проект?','faq.a1':'Зависит от типа. Монтаж — 3-5 дней. Сайт — 7-14 дней. Съёмка — по вашему графику.','faq.q2':'Как начать работу?','faq.a2':'Напишите в форме или Instagram, объясните проект, согласуем цену и сроки — начинаем.','faq.q3':'Что включает цена?','faq.a3':'Всё что указано в пакете. До 5 правок — бесплатно. Каждая следующая — отдельно.','faq.q4':'Есть ли предоплата?','faq.a4':'Да, 50% предоплата до начала работы. Остаток — при сдаче финального проекта.','faq.q5':'Работаете удалённо?','faq.a5':'Да! Работаем с клиентами по всему Израилю и за рубежом. Всё онлайн.',
+        'timer.text':'⚡ Эти цены действуют ещё:','timer.hours':'часов','timer.minutes':'минут','timer.seconds':'секунд',
       },
       en: {
         'nav.about': 'About',
@@ -1605,6 +1691,7 @@
         'pricing.web.title':'Websites','pricing.web.1':'Full Site + Domain','pricing.web.2':'Site + Landing Page','pricing.web.3':'Landing Page','pricing.web.4':'Landing + Bot','pricing.landing.title':'Landing Page','pricing.landing.1':'One Landing Page','pricing.landing.2':'Landing + Bot',
         'modal.title':'Thank You!','modal.desc':'We received your request. We will contact you shortly.','modal.close':'Close',
         'faq.label':'FAQ','faq.q1':'How long does a project take?','faq.a1':'Depends on the type. Editing — 3-5 days. Website — 7-14 days. Filming — scheduled by your availability.','faq.q2':'How do we start?','faq.a2':'Send a message via the form or Instagram, explain the project, agree on price and timeline — we start.','faq.q3':'What does the price include?','faq.a3':'Everything listed in the package. Up to 5 revisions — free. Each additional one is charged separately.','faq.q4':'Is there a deposit?','faq.a4':'Yes, 50% deposit before work begins. The rest is paid upon delivery of the final project.','faq.q5':'Do you work remotely?','faq.a5':'Yes! We work with clients across Israel and abroad. Everything is handled online.',
+        'timer.text':'⚡ These prices are valid for:','timer.hours':'hours','timer.minutes':'minutes','timer.seconds':'seconds',
       }
     };
 
@@ -1693,6 +1780,27 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+    // ── SCROLL ANIMATIONS ──
+    const animElements = document.querySelectorAll('section, .service-card, .pricing-table, .faq-item, .site-card, .guarantee-badge');
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, i * 60);
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    animElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      animObserver.observe(el);
+    });
+
 // ── ANIMATED COUNTERS ──
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'));
@@ -1762,6 +1870,79 @@ const counterObserver = new IntersectionObserver((entries) => {
     animateParticles();
 
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
+
+// ── COUNTDOWN TIMER ──
+    function startTimer() {
+      const key = 'timerEnd';
+      let end = localStorage.getItem(key);
+      if (!end) {
+        end = Date.now() + 22 * 60 * 60 * 1000;
+        localStorage.setItem(key, end);
+      }
+      function update() {
+        const diff = Math.max(0, end - Date.now());
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('timerH').textContent = String(h).padStart(2,'0');
+        document.getElementById('timerM').textContent = String(m).padStart(2,'0');
+        document.getElementById('timerS').textContent = String(s).padStart(2,'0');
+        if (diff > 0) setTimeout(update, 1000);
+      }
+      update();
+    }
+    startTimer();
+
+// ── BACK TO TOP ──
+    window.addEventListener('scroll', () => {
+      const backBtn = document.getElementById('backToTop');
+      if (backBtn) backBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+
+// ── CUSTOM CURSOR ──
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '52px';
+        ring.style.height = '52px';
+        ring.style.borderColor = 'rgba(255,255,255,0.8)';
+        dot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+        ring.style.borderColor = 'rgba(255,255,255,0.4)';
+        dot.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
   </script>
+  <!-- WhatsApp Button -->
+<a class="whatsapp-btn" href="https://wa.me/972547374402" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.054 23.486a.5.5 0 00.612.612l5.624-1.478A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.188-1.432l-.372-.22-3.864 1.016 1.016-3.741-.241-.386A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>
