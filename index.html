@@ -783,6 +783,18 @@
       text-transform: uppercase;
     }
 
+    /* ── GUARANTEE ── */
+    #guarantee { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    .guarantee-grid { display: grid; grid-template-columns: 120px 1fr; gap: 60px; align-items: start; }
+    .guarantee-icon { font-size: 80px; color: rgba(255,255,255,0.06); line-height: 1; padding-top: 8px; }
+    .guarantee-title { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #fff; letter-spacing: 2px; margin-bottom: 20px; }
+    .guarantee-desc { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.9; max-width: 640px; }
+    .guarantee-badges { display: flex; gap: 48px; margin-top: 40px; padding-top: 40px; border-top: 0.5px solid var(--line); }
+    .guarantee-badge { display: flex; flex-direction: column; gap: 6px; }
+    .badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #fff; line-height: 1; }
+    .badge-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    @media (max-width: 900px) { .guarantee-grid { grid-template-columns: 1fr; gap: 24px; } .guarantee-icon { display: none; } }
+
     /* ── CONTACT ── */
     #contact .contact-grid {
       display: grid;
@@ -1127,6 +1139,32 @@
     </div>
   </section>
 
+  <!-- ── GUARANTEE ── -->
+  <section id="guarantee">
+    <div class="section-label" data-i18n="guarantee.label">גרנטיה</div>
+    <div class="guarantee-grid">
+      <div class="guarantee-icon">✦</div>
+      <div class="guarantee-text">
+        <h2 class="guarantee-title" data-i18n="guarantee.title">אחריות החזר כספי</h2>
+        <p class="guarantee-desc" data-i18n="guarantee.desc">אם לאחר 5 תיקונים הפרויקט עדיין לא עומד בציפיותיך — נחזיר לך את מלוא הסכום ששילמת, למעט מקדמה ראשונית. אנחנו עובדים עד שאתה מרוצה.</p>
+        <div class="guarantee-badges">
+          <div class="guarantee-badge">
+            <span class="badge-num" data-target="5" data-suffix="">0</span>
+            <span class="badge-label" data-i18n="guarantee.revisions">תיקונים חינם</span>
+          </div>
+          <div class="guarantee-badge">
+            <span class="badge-num">100%</span>
+            <span class="badge-label" data-i18n="guarantee.refund">החזר כספי</span>
+          </div>
+          <div class="guarantee-badge">
+            <span class="badge-num">0</span>
+            <span class="badge-label" data-i18n="guarantee.risk">סיכון</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="section-label" data-i18n="contact.label">צור קשר</div>
@@ -1239,6 +1277,12 @@
         'vid.cat3': 'צילום', 'vid.title3': 'פרויקט 03',
         'vid.cat4': 'תסריט', 'vid.title4': 'פרויקט 04',
         'vid.cat5': 'עריכת וידאו', 'vid.title5': 'פרויקט 05',
+        'guarantee.label': 'אחריות',
+        'guarantee.title': 'אחריות החזר כספי',
+        'guarantee.desc': 'אם לאחר 5 תיקונים הפרויקט עדיין לא עומד בציפיותיך — נחזיר לך את מלוא הסכום ששילמת, למעט מקדמה ראשונית. אנחנו עובדים עד שאתה מרוצה.',
+        'guarantee.revisions': 'תיקונים חינם',
+        'guarantee.refund': 'החזר כספי',
+        'guarantee.risk': 'סיכון',
       },
       ru: {
         'nav.about': 'Обо мне',
@@ -1302,6 +1346,12 @@
         'vid.cat3': 'Съёмка', 'vid.title3': 'Проект 03',
         'vid.cat4': 'Сценарий', 'vid.title4': 'Проект 04',
         'vid.cat5': 'Монтаж видео', 'vid.title5': 'Проект 05',
+        'guarantee.label': 'Гарантия',
+        'guarantee.title': 'Гарантия возврата',
+        'guarantee.desc': 'Если после 5 правок проект всё ещё не соответствует ожиданиям — возвращаем всю сумму кроме предоплаты. Работаем пока вы не довольны.',
+        'guarantee.revisions': 'Правок бесплатно',
+        'guarantee.refund': 'Возврат денег',
+        'guarantee.risk': 'Риск',
       },
       en: {
         'nav.about': 'About',
@@ -1365,6 +1415,12 @@
         'vid.cat3': 'Filming', 'vid.title3': 'Project 03',
         'vid.cat4': 'Script', 'vid.title4': 'Project 04',
         'vid.cat5': 'Video Editing', 'vid.title5': 'Project 05',
+        'guarantee.label': 'Guarantee',
+        'guarantee.title': 'Money-Back Guarantee',
+        'guarantee.desc': 'If after 5 revisions the project still does not meet your expectations — we refund the full amount except the initial deposit. We work until you are satisfied.',
+        'guarantee.revisions': 'Free Revisions',
+        'guarantee.refund': 'Money Back',
+        'guarantee.risk': 'Risk',
       }
     };
 
@@ -1451,7 +1507,7 @@ const counterObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
   </script>
 </body>
 </html>
