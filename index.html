@@ -110,6 +110,7 @@
     .lang-btn.active { border-color: rgba(255,255,255,0.6); color: #fff; background: rgba(255,255,255,0.06); }
 
     /* ── HERO ── */
+    #particles-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
     #hero {
       min-height: 100vh;
       display: flex;
@@ -949,6 +950,7 @@
   <!-- ── HERO ── -->
   <section id="hero">
     <div class="hero-bg-lines"></div>
+    <canvas id="particles-canvas"></canvas>
     <div>
       <p class="hero-tag" data-i18n="hero.tag">מדיה · עריכה · יצירה · אתרים</p>
       <h1 class="hero-title">
@@ -1684,6 +1686,47 @@ const counterObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.5 });
+
+// ── PARTICLES ──
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5 + 0.3,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: -Math.random() * 0.4 - 0.1,
+        opacity: Math.random() * 0.5 + 0.1,
+      };
+    }
+
+    for (let i = 0; i < 120; i++) particles.push(createParticle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.opacity -= 0.0008;
+        if (p.y < 0 || p.opacity <= 0) particles[i] = createParticle();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
 
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
   </script>
