@@ -415,90 +415,20 @@
       min-height: 560px;
     }
 
-    /* Instagram Banner */
-    .insta-banner {
-      position: relative;
-      overflow: hidden;
-      display: block;
-      text-decoration: none;
-      cursor: pointer;
-      background: var(--bg3);
-      border: 0.5px solid var(--line);
-    }
-    .insta-bg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(30%) brightness(0.45);
-      transition: filter 0.5s ease, transform 0.6s ease;
-      position: absolute;
-      inset: 0;
-    }
-    .insta-banner:hover .insta-bg {
-      filter: grayscale(0%) brightness(0.55);
-      transform: scale(1.03);
-    }
-    .insta-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
-    }
-    .insta-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      text-align: center;
-      padding: 40px;
-    }
-    .insta-icon {
-      width: 64px;
-      height: 64px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .insta-banner:hover .insta-icon {
-      border-color: rgba(255,255,255,0.8);
-      transform: scale(1.1);
-    }
-    .insta-handle {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 48px;
-      color: #fff;
-      letter-spacing: 4px;
-      line-height: 1;
-    }
-    .insta-label {
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-    }
-    .insta-cta {
-      margin-top: 12px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      background: rgba(255,255,255,0.1);
-      border: 0.5px solid rgba(255,255,255,0.25);
-      padding: 10px 24px;
-      border-radius: 2px;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .insta-banner:hover .insta-cta {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.6);
-    }
+    /* Instagram Banner — new layout */
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 420px; gap: 2px; min-height: 560px; }
+    .insta-photo-wrap { position: relative; overflow: hidden; }
+    .insta-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(20%) brightness(0.8); transition: filter 0.5s, transform 0.6s; }
+    .insta-photo-wrap:hover .insta-photo { filter: grayscale(0%) brightness(0.9); transform: scale(1.03); }
+    .insta-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to left, rgba(10,10,10,0.4), transparent); pointer-events: none; }
+    .insta-text-side { background: var(--bg2); border: 0.5px solid var(--line); display: flex; flex-direction: column; justify-content: center; padding: 48px 40px; gap: 20px; }
+    .insta-corner-tag { font-size: 9px; letter-spacing: 3px; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+    .insta-icon { width: 56px; height: 56px; border: 0.5px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .insta-handle { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; letter-spacing: 3px; line-height: 1; }
+    .insta-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+    .insta-cta-btn { display: inline-block; margin-top: 8px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #0a0a0a; background: #fff; padding: 14px 28px; text-decoration: none; border-radius: 2px; font-weight: 500; transition: opacity 0.2s; align-self: flex-start; }
+    .insta-cta-btn:hover { opacity: 0.85; }
+    @media (max-width: 900px) { .portfolio-grid { grid-template-columns: 1fr; } .insta-photo-wrap { min-height: 300px; } }
     .insta-corner-tag {
       position: absolute;
       top: 20px;
@@ -1110,47 +1040,26 @@
 
     <div class="portfolio-grid">
 
-      <!-- LEFT — Instagram Banner -->
-      <a class="insta-banner" href="https://www.instagram.com/Vichi_404" target="_blank" rel="noopener">
-        <img class="insta-bg" src="images/photo-studio.jpg" alt="vichi404 instagram">
-        <div class="insta-overlay"></div>
-        <div class="insta-content">
-          <div class="insta-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/>
-              <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.5"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="white"/>
-            </svg>
-          </div>
-          <div class="insta-handle">@Vichi_404</div>
-          <div class="insta-label" data-i18n="insta.label">עקוב באינסטגרם</div>
-          <div class="insta-cta" data-i18n="insta.cta">צפה בעבודות ↗</div>
-        </div>
+      <!-- LEFT — Instagram Photo -->
+      <div class="insta-photo-wrap">
+        <img src="images/photo-insta.jpg" alt="vichi404" class="insta-photo">
+        <div class="insta-photo-overlay"></div>
+      </div>
+
+      <!-- RIGHT — Instagram Text + Button -->
+      <div class="insta-text-side">
         <div class="insta-corner-tag">INSTAGRAM</div>
-      </a>
-
-      <!-- RIGHT — Two site cards stacked -->
-      <div class="sites-stack">
-
-        <!-- inKlab -->
-        <a class="site-card" href="https://www.inklabschool.com" target="_blank" rel="noopener">
-          <div class="site-card-bar">
-            <div class="dot dot-r"></div>
-            <div class="dot dot-y"></div>
-            <div class="dot dot-g"></div>
-            <span class="site-url">inklabschool.com</span>
-          </div>
-          <div class="site-card-screen">
-            <img src="images/inklab-screen.jpg" alt="inKlab" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="site-card-footer">
-            <div>
-              <div class="site-name">inKlab School</div>
-              <div class="site-tech">React · Railway · Custom Design</div>
-            </div>
-            <span class="site-visit-btn" data-i18n="site.btn">פתח אתר ↗</span>
-          </div>
-        </a>
+        <div class="insta-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+          </svg>
+        </div>
+        <div class="insta-handle">@Vichi_404</div>
+        <p class="insta-desc" data-i18n="insta.desc">עוקבים אחרי תהליכי העבודה, עבודות אחרונות, רילסים ותוכן יומיומי — הכל באינסטגרם.</p>
+        <a class="insta-cta-btn" href="https://www.instagram.com/Vichi_404" target="_blank" rel="noopener" data-i18n="insta.cta">צפה בעבודות ↗</a>
+      </div>
 
         <!-- vichi404 -->
         <a class="site-card" href="https://www.vichi404.com" target="_blank" rel="noopener">
@@ -1455,7 +1364,7 @@
         'video.note': '⬆ להוספת וידאו — החלף את "YOUR_VIDEO_ID" בקוד הסרטון מYouTube',
         'site.btn': 'פתח אתר ↗',
         'site.current': 'האתר הנוכחי',
-        'insta.label': 'עקוב באינסטגרם',
+        'insta.label':'עקוב באינסטגרם','insta.desc':'עוקבים אחרי תהליכי העבודה, עבודות אחרונות, רילסים ותוכן יומיומי — הכל באינסטגרם.','insta.cta':'צפה בעבודות ↗',
         'insta.cta': 'צפה בעבודות ↗',
         'site.next': 'הפרויקט הבא שלך',
         'site.next.sub': 'בואו נדבר ↗',
@@ -1530,7 +1439,7 @@
         'video.note': '⬆ Чтобы добавить видео — замените "YOUR_VIDEO_ID" на код видео с YouTube',
         'site.btn': 'Открыть сайт ↗',
         'site.current': 'Текущий сайт',
-        'insta.label': 'Подписывайся в Instagram',
+        'insta.label':'Подписывайся','insta.desc':'Процессы работы, последние проекты, рилсы и ежедневный контент — всё в Instagram.','insta.cta':'Смотреть работы ↗',
         'insta.cta': 'Смотреть работы ↗',
         'site.next': 'Твой следующий проект',
         'site.next.sub': 'Давай поговорим ↗',
@@ -1605,7 +1514,7 @@
         'video.note': '⬆ To add video — replace "YOUR_VIDEO_ID" with your YouTube video code',
         'site.btn': 'Visit Site ↗',
         'site.current': 'Current Site',
-        'insta.label': 'Follow on Instagram',
+        'insta.label':'Follow me','insta.desc':'Behind the scenes, recent work, reels and daily content — all on Instagram.','insta.cta':'View Work ↗',
         'insta.cta': 'View Work ↗',
         'site.next': 'Your Next Project',
         'site.next.sub': "Let's talk ↗",
