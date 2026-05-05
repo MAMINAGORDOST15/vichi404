@@ -783,6 +783,33 @@
       text-transform: uppercase;
     }
 
+    /* ── PRICING ── */
+    #pricing { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .pricing-table { background: var(--bg2); border: 0.5px solid var(--line); padding: 32px 28px; display: flex; flex-direction: column; gap: 0; }
+    .pricing-table-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 0.5px solid var(--line); }
+    .pricing-table-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff; letter-spacing: 2px; }
+    .pricing-table-icon { font-size: 18px; color: rgba(255,255,255,0.3); }
+    .pricing-item { padding: 18px 0; border-bottom: 0.5px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+    .pricing-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pricing-item.deal { background: rgba(255,255,255,0.02); margin: 0 -28px; padding: 18px 28px; }
+    .pricing-item-name { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 400; }
+    .pricing-item-price { display: flex; align-items: baseline; gap: 4px; }
+    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #fff; line-height: 1; }
+    .price-currency { font-size: 18px; color: rgba(255,255,255,0.6); }
+    .price-old { font-size: 13px; color: rgba(255,255,255,0.25); text-decoration: line-through; margin-right: 8px; }
+    .pricing-buy-btn { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 11px 20px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; transition: opacity 0.2s; align-self: flex-start; }
+    .pricing-buy-btn:hover { opacity: 0.8; }
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+    .modal-overlay.active { display: flex; }
+    .modal-box { background: #111; border: 0.5px solid rgba(255,255,255,0.12); padding: 56px 48px; text-align: center; max-width: 420px; width: 90%; border-radius: 4px; }
+    .modal-icon { font-size: 32px; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+    .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; letter-spacing: 2px; margin-bottom: 16px; }
+    .modal-desc { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 32px; }
+    .modal-close { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 32px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
     /* ── GUARANTEE ── */
     #guarantee { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
     .guarantee-grid { display: grid; grid-template-columns: 120px 1fr; gap: 60px; align-items: start; }
@@ -1139,6 +1166,111 @@
     </div>
   </section>
 
+  <!-- ── PRICING ── -->
+  <section id="pricing">
+    <div class="section-label" data-i18n="pricing.label">מחירים</div>
+
+    <div class="pricing-grid">
+
+      <!-- FILMING -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">◉</span>
+          <h3 data-i18n="pricing.filming.title">צילום וידאו</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.filming.1">צילום וידאו אחד</div>
+          <div class="pricing-item-price"><span class="price-amount">500</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.filming.2">חבילת 5 סרטונים</div>
+          <div class="pricing-item-price"><span class="price-amount">2,000</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.filming.3">חבילת 10 סרטונים</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">3,799</span><span class="price-currency">₪</span>
+            <span class="price-old">4,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+      <!-- EDITING -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">▶</span>
+          <h3 data-i18n="pricing.editing.title">מונטאז'</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.editing.1">מונטאז' דקה אחת</div>
+          <div class="pricing-item-price"><span class="price-amount">450</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.editing.2">מונטאז' 10 דקות</div>
+          <div class="pricing-item-price"><span class="price-amount">4,500</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.editing.3">מונטאז' 30 דקות</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">10,000</span><span class="price-currency">₪</span>
+            <span class="price-old">13,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+      <!-- WEBSITES -->
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <span class="pricing-table-icon">◻</span>
+          <h3 data-i18n="pricing.web.title">אתרים</h3>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.web.1">אתר מלא + דומיין</div>
+          <div class="pricing-item-price"><span class="price-amount">2,000</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.web.2">אתר + לנדינג פייג'</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">3,000</span><span class="price-currency">₪</span>
+            <span class="price-old">4,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-item-name" data-i18n="pricing.web.3">לנדינג פייג'</div>
+          <div class="pricing-item-price"><span class="price-amount">1,500</span><span class="price-currency">₪</span></div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+        <div class="pricing-item deal">
+          <div class="pricing-item-name" data-i18n="pricing.web.4">לנדינג + בוט אוטומטי</div>
+          <div class="pricing-item-price">
+            <span class="price-amount">3,000</span><span class="price-currency">₪</span>
+            <span class="price-old">4,500₪</span>
+          </div>
+          <button class="pricing-buy-btn" onclick="showThankYou()" data-i18n="pricing.buy">רכישה</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THANK YOU MODAL -->
+  <div class="modal-overlay" id="thankYouModal" onclick="hideThankYou()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-icon">✦</div>
+      <h3 class="modal-title" data-i18n="modal.title">תודה רבה!</h3>
+      <p class="modal-desc" data-i18n="modal.desc">קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם האפשרי.</p>
+      <button class="modal-close" onclick="hideThankYou()" data-i18n="modal.close">סגור</button>
+    </div>
+  </div>
+
   <!-- ── GUARANTEE ── -->
   <section id="guarantee">
     <div class="section-label" data-i18n="guarantee.label">גרנטיה</div>
@@ -1283,6 +1415,11 @@
         'guarantee.revisions': 'תיקונים חינם',
         'guarantee.refund': 'החזר כספי',
         'guarantee.risk': 'סיכון',
+        'pricing.label':'מחירים','pricing.buy':'רכישה',
+        'pricing.filming.title':'צילום וידאו','pricing.filming.1':'צילום וידאו אחד','pricing.filming.2':'חבילת 5 סרטונים','pricing.filming.3':'חבילת 10 סרטונים',
+        'pricing.editing.title':"מונטאז'",'pricing.editing.1':"מונטאז' דקה אחת",'pricing.editing.2':"מונטאז' 10 דקות",'pricing.editing.3':"מונטאז' 30 דקות",
+        'pricing.web.title':'אתרים','pricing.web.1':'אתר מלא + דומיין','pricing.web.2':"אתר + לנדינג פייג'",'pricing.web.3':"לנדינג פייג'",'pricing.web.4':'לנדינג + בוט אוטומטי',
+        'modal.title':'תודה רבה!','modal.desc':'קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם.','modal.close':'סגור',
       },
       ru: {
         'nav.about': 'Обо мне',
@@ -1352,6 +1489,11 @@
         'guarantee.revisions': 'Правок бесплатно',
         'guarantee.refund': 'Возврат денег',
         'guarantee.risk': 'Риск',
+        'pricing.label':'Цены','pricing.buy':'Купить',
+        'pricing.filming.title':'Съёмка видео','pricing.filming.1':'Съёмка 1 видео','pricing.filming.2':'Пакет 5 видео','pricing.filming.3':'Пакет 10 видео',
+        'pricing.editing.title':'Монтаж','pricing.editing.1':'Монтаж 1 минута','pricing.editing.2':'Монтаж 10 минут','pricing.editing.3':'Монтаж 30 минут',
+        'pricing.web.title':'Сайты','pricing.web.1':'Полный сайт + домен','pricing.web.2':'Сайт + лендинг','pricing.web.3':'Лендинг пейдж','pricing.web.4':'Лендинг + бот',
+        'modal.title':'Спасибо!','modal.desc':'Мы получили ваш запрос. Свяжемся с вами в ближайшее время.','modal.close':'Закрыть',
       },
       en: {
         'nav.about': 'About',
@@ -1421,6 +1563,11 @@
         'guarantee.revisions': 'Free Revisions',
         'guarantee.refund': 'Money Back',
         'guarantee.risk': 'Risk',
+        'pricing.label':'Pricing','pricing.buy':'Buy',
+        'pricing.filming.title':'Video Filming','pricing.filming.1':'1 Video Shoot','pricing.filming.2':'5 Videos Package','pricing.filming.3':'10 Videos Package',
+        'pricing.editing.title':'Editing','pricing.editing.1':'1 Minute Edit','pricing.editing.2':'10 Minutes Edit','pricing.editing.3':'30 Minutes Edit',
+        'pricing.web.title':'Websites','pricing.web.1':'Full Site + Domain','pricing.web.2':'Site + Landing Page','pricing.web.3':'Landing Page','pricing.web.4':'Landing + Bot',
+        'modal.title':'Thank You!','modal.desc':'We received your request. We will contact you shortly.','modal.close':'Close',
       }
     };
 
@@ -1468,6 +1615,14 @@
       btn.textContent = msgs[currentLang];
       btn.style.opacity = '0.6';
       btn.disabled = true;
+    }
+
+    // ── THANK YOU MODAL ──
+    function showThankYou() {
+      document.getElementById('thankYouModal').classList.add('active');
+    }
+    function hideThankYou() {
+      document.getElementById('thankYouModal').classList.remove('active');
     }
 
     // ── SCROLL FADE IN ──
