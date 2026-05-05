@@ -989,6 +989,12 @@
       footer { padding: 24px; flex-direction: column; gap: 12px; }
     }
 
+    /* Back to Top */
+    .back-to-top { position: fixed; bottom: 28px; right: 28px; width: 48px; height: 48px; background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.2); color: #fff; font-size: 18px; border-radius: 50%; cursor: none; z-index: 998; opacity: 0; transform: translateY(20px); transition: opacity 0.3s, transform 0.3s, background 0.2s; display: flex; align-items: center; justify-content: center; }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); 
+    }
+
     /* WhatsApp Button */
     .whatsapp-btn { position: fixed; bottom: 28px; left: 28px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); 
@@ -1827,6 +1833,12 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
 
+// ── BACK TO TOP ──
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+
 // ── CUSTOM CURSOR ──
     const dot = document.querySelector('.cursor-dot');
     const ring = document.querySelector('.cursor-ring');
@@ -1871,5 +1883,6 @@ document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => co
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.054 23.486a.5.5 0 00.612.612l5.624-1.478A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.188-1.432l-.372-.22-3.864 1.016 1.016-3.741-.241-.386A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
   </svg>
 </a>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>
