@@ -2,6 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="manifest" href="/manifest.json">
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L90YVNWZPN"></script>
 <script>
@@ -1935,6 +1936,11 @@ document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => co
         dot.style.transform = 'translate(-50%, -50%) scale(1)';
       });
     });
+
+    // ── SERVICE WORKER ──
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
   </script>
   <!-- WhatsApp Button -->
 <a class="whatsapp-btn" href="https://wa.me/972547374402" target="_blank" rel="noopener">
