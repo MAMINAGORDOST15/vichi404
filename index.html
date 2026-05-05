@@ -2,6 +2,8 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('82P5aB2cmLM-qPaC9');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VICHI404 — מדיה ועריכה</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1612,10 +1614,23 @@
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.form-submit');
-      const msgs = { he: 'נשלח! אחזור אליך בקרוב ✓', ru: 'Отправлено! Скоро отвечу ✓', en: 'Sent! I\'ll get back to you soon ✓' };
-      btn.textContent = msgs[currentLang];
-      btn.style.opacity = '0.6';
+      const originalText = btn.textContent;
+      btn.textContent = '...';
       btn.disabled = true;
+
+      emailjs.send('service_49frxio', 'template_kc80cde', {
+        from_name: e.target.querySelector('input[type="text"]').value,
+        from_email: e.target.querySelector('input[type="email"]').value,
+        message: e.target.querySelector('textarea').value,
+      }).then(() => {
+        showThankYou();
+        e.target.reset();
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }).catch(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      });
     }
 
     // ── THANK YOU MODAL ──
