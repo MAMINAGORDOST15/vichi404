@@ -449,6 +449,14 @@
       flex-direction: column;
       gap: 2px;
     }
+    .site-card { display: flex; flex-direction: column; background: var(--bg3); border: 0.5px solid var(--line); text-decoration: none; overflow: hidden; transition: border-color 0.3s; min-height: 280px; }
+    .site-card:hover { border-color: rgba(255,255,255,0.2); }
+    .site-card-bar { background: var(--bg2); padding: 8px 12px; display: flex; align-items: center; gap: 6px; border-bottom: 0.5px solid var(--line); flex-shrink: 0; }
+    .site-card-screen { flex: 1; overflow: hidden; min-height: 160px; background: var(--bg3); }
+    .site-card-footer { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--line); flex-shrink: 0; }
+    .site-visit-btn { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.18); padding: 7px 14px; border-radius: 2px; white-space: nowrap; transition: background 0.2s; }
+    .site-card:hover .site-visit-btn { background: rgba(255,255,255,0.15); 
+    }
     .site-card {
       flex: 1;
       display: flex;
