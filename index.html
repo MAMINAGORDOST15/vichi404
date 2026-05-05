@@ -1726,6 +1726,27 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+    // ── SCROLL ANIMATIONS ──
+    const animElements = document.querySelectorAll('section, .service-card, .pricing-table, .faq-item, .site-card, .guarantee-badge');
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, i * 60);
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    animElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      animObserver.observe(el);
+    });
+
 // ── ANIMATED COUNTERS ──
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'));
