@@ -1834,9 +1834,9 @@ const counterObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
 
 // ── BACK TO TOP ──
-    const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-      backBtn.classList.toggle('visible', window.scrollY > 400);
+      const backBtn = document.getElementById('backToTop');
+      if (backBtn) backBtn.classList.toggle('visible', window.scrollY > 400);
     });
 
 // ── CUSTOM CURSOR ──
