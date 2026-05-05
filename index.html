@@ -810,6 +810,17 @@
     .modal-close { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 32px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; }
     @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
 
+    /* ── FAQ ── */
+    #faq { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
+    .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 0.5px solid var(--line); cursor: pointer; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; font-size: 17px; color: rgba(255,255,255,0.85); font-weight: 500; transition: color 0.2s; gap: 20px; }
+    .faq-item:hover .faq-question { color: #fff; }
+    .faq-arrow { font-size: 18px; color: rgba(255,255,255,0.3); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); color: #fff; }
+    .faq-answer { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.9; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0; }
+    .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 24px; }
+
     /* ── GUARANTEE ── */
     #guarantee { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
     .guarantee-grid { display: grid; grid-template-columns: 120px 1fr; gap: 60px; align-items: start; }
@@ -1281,6 +1292,54 @@
     </div>
   </div>
 
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="section-label" data-i18n="faq.label">שאלות נפוצות</div>
+    <div class="faq-list">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q1">כמה זמן לוקח פרויקט?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a1">תלוי בסוג הפרויקט. מונטאז' רגיל — 3-5 ימים. אתר — 7-14 ימים. צילום — מתואם לפי לוח הזמנים שלך.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q2">איך מתחילים לעבוד?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a2">שולחים הודעה בטופס או באינסטגרם, מסבירים את הפרויקט, מסכימים על מחיר ומועד — ומתחילים.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q3">מה כולל המחיר?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a3">המחיר כולל את כל העבודה המפורטת בחבילה. תיקונים עד 5 פעמים — בחינם. כל תיקון נוסף מעבר לכך — בתשלום נפרד.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q4">האם יש מקדמה?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a4">כן, 50% מקדמה לפני תחילת העבודה. היתרה משולמת עם מסירת הפרויקט הסופי.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span data-i18n="faq.q5">עובדים מרחוק?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-answer" data-i18n="faq.a5">כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל. הכל מתנהל אונליין בצורה נוחה ומהירה.</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ── GUARANTEE ── -->
   <section id="guarantee">
     <div class="section-label" data-i18n="guarantee.label">גרנטיה</div>
@@ -1430,6 +1489,7 @@
         'pricing.editing.title':"מונטאז'",'pricing.editing.1':"מונטאז' דקה אחת",'pricing.editing.2':"מונטאז' 10 דקות",'pricing.editing.3':"מונטאז' 30 דקות",
         'pricing.web.title':'אתרים','pricing.web.1':'אתר מלא + דומיין','pricing.web.2':"אתר + לנדינג פייג'",'pricing.web.3':"לנדינג פייג'",'pricing.web.4':'לנדינג + בוט אוטומטי','pricing.landing.title':"לנדינג פייג'",'pricing.landing.1':"לנדינג פייג' אחד",'pricing.landing.2':'לנדינג + בוט אוטומטי',
         'modal.title':'תודה רבה!','modal.desc':'קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם.','modal.close':'סגור',
+        'faq.label':'שאלות נפוצות','faq.q1':'כמה זמן לוקח פרויקט?','faq.a1':'תלוי בסוג הפרויקט. מונטאז\' רגיל — 3-5 ימים. אתר — 7-14 ימים. צילום — מתואם לפי לוח הזמנים שלך.','faq.q2':'איך מתחילים לעבוד?','faq.a2':'שולחים הודעה בטופס או באינסטגרם, מסבירים את הפרויקט, מסכימים על מחיר ומועד — ומתחילים.','faq.q3':'מה כולל המחיר?','faq.a3':'המחיר כולל את כל העבודה המפורטת בחבילה. תיקונים עד 5 פעמים — בחינם.','faq.q4':'האם יש מקדמה?','faq.a4':'כן, 50% מקדמה לפני תחילת העבודה. היתרה משולמת עם מסירת הפרויקט הסופי.','faq.q5':'עובדים מרחוק?','faq.a5':'כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל.',
       },
       ru: {
         'nav.about': 'Обо мне',
@@ -1504,6 +1564,7 @@
         'pricing.editing.title':'Монтаж','pricing.editing.1':'Монтаж 1 минута','pricing.editing.2':'Монтаж 10 минут','pricing.editing.3':'Монтаж 30 минут',
         'pricing.web.title':'Сайты','pricing.web.1':'Полный сайт + домен','pricing.web.2':'Сайт + лендинг','pricing.web.3':'Лендинг пейдж','pricing.web.4':'Лендинг + бот','pricing.landing.title':'Лендинг пейдж','pricing.landing.1':'Один лендинг пейдж','pricing.landing.2':'Лендинг + бот',
         'modal.title':'Спасибо!','modal.desc':'Мы получили ваш запрос. Свяжемся с вами в ближайшее время.','modal.close':'Закрыть',
+        'faq.label':'FAQ','faq.q1':'Сколько времени занимает проект?','faq.a1':'Зависит от типа. Монтаж — 3-5 дней. Сайт — 7-14 дней. Съёмка — по вашему графику.','faq.q2':'Как начать работу?','faq.a2':'Напишите в форме или Instagram, объясните проект, согласуем цену и сроки — начинаем.','faq.q3':'Что включает цена?','faq.a3':'Всё что указано в пакете. До 5 правок — бесплатно. Каждая следующая — отдельно.','faq.q4':'Есть ли предоплата?','faq.a4':'Да, 50% предоплата до начала работы. Остаток — при сдаче финального проекта.','faq.q5':'Работаете удалённо?','faq.a5':'Да! Работаем с клиентами по всему Израилю и за рубежом. Всё онлайн.',
       },
       en: {
         'nav.about': 'About',
@@ -1578,6 +1639,7 @@
         'pricing.editing.title':'Editing','pricing.editing.1':'1 Minute Edit','pricing.editing.2':'10 Minutes Edit','pricing.editing.3':'30 Minutes Edit',
         'pricing.web.title':'Websites','pricing.web.1':'Full Site + Domain','pricing.web.2':'Site + Landing Page','pricing.web.3':'Landing Page','pricing.web.4':'Landing + Bot','pricing.landing.title':'Landing Page','pricing.landing.1':'One Landing Page','pricing.landing.2':'Landing + Bot',
         'modal.title':'Thank You!','modal.desc':'We received your request. We will contact you shortly.','modal.close':'Close',
+        'faq.label':'FAQ','faq.q1':'How long does a project take?','faq.a1':'Depends on the type. Editing — 3-5 days. Website — 7-14 days. Filming — scheduled by your availability.','faq.q2':'How do we start?','faq.a2':'Send a message via the form or Instagram, explain the project, agree on price and timeline — we start.','faq.q3':'What does the price include?','faq.a3':'Everything listed in the package. Up to 5 revisions — free. Each additional one is charged separately.','faq.q4':'Is there a deposit?','faq.a4':'Yes, 50% deposit before work begins. The rest is paid upon delivery of the final project.','faq.q5':'Do you work remotely?','faq.a5':'Yes! We work with clients across Israel and abroad. Everything is handled online.',
       }
     };
 
@@ -1633,6 +1695,13 @@
     }
     function hideThankYou() {
       document.getElementById('thankYouModal').classList.remove('active');
+    }
+
+    // ── FAQ TOGGLE ──
+    function toggleFaq(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
     }
 
     // ── SCROLL FADE IN ──
