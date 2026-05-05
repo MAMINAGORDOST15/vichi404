@@ -804,6 +804,7 @@
     .price-old { font-size: 13px; color: #e05555; text-decoration: line-through; margin-right: 8px; font-weight: 500; }
     .pricing-buy-btn { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 11px 20px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; transition: opacity 0.2s; align-self: flex-start; }
     .pricing-buy-btn:hover { opacity: 0.8; }
+
     /* MODAL */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
     .modal-overlay.active { display: flex; }
@@ -813,6 +814,17 @@
     .modal-desc { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 32px; }
     .modal-close { background: #fff; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 32px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 2px; }
     @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    /* Timer */
+    #timer { padding: 40px 48px; background: rgba(255,30,30,0.06); border-bottom: 0.5px solid rgba(255,50,50,0.2); border-top: 0.5px solid rgba(255,50,50,0.2); }
+    .timer-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .timer-text { font-size: 16px; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
+    .timer-countdown { display: flex; align-items: center; gap: 8px; }
+    .timer-block { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .timer-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #ff4444; line-height: 1; min-width: 64px; text-align: center; }
+    .timer-sep { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #ff4444; line-height: 1; margin-bottom: 20px; }
+    .timer-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    @media (max-width: 768px) { #timer { padding: 32px 20px; } .timer-num { font-size: 40px; } .timer-sep { font-size: 40px; } }
 
     /* ── FAQ ── */
     #faq { padding: 100px 48px; border-bottom: 0.5px solid var(--line); }
@@ -1306,6 +1318,29 @@
     </div>
   </div>
 
+  <!-- ── TIMER ── -->
+<section id="timer">
+  <div class="timer-inner">
+    <div class="timer-text" data-i18n="timer.text">⚡ המחירים האלה בתוקף עוד:</div>
+    <div class="timer-countdown">
+      <div class="timer-block">
+        <span class="timer-num" id="timerH">22</span>
+        <span class="timer-label" data-i18n="timer.hours">שעות</span>
+      </div>
+      <span class="timer-sep">:</span>
+      <div class="timer-block">
+        <span class="timer-num" id="timerM">00</span>
+        <span class="timer-label" data-i18n="timer.minutes">דקות</span>
+      </div>
+      <span class="timer-sep">:</span>
+      <div class="timer-block">
+        <span class="timer-num" id="timerS">00</span>
+        <span class="timer-label" data-i18n="timer.seconds">שניות</span>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- ── FAQ ── -->
   <section id="faq">
     <div class="section-label" data-i18n="faq.label">שאלות נפוצות</div>
@@ -1504,6 +1539,7 @@
         'pricing.web.title':'אתרים','pricing.web.1':'אתר מלא + דומיין','pricing.web.2':"אתר + לנדינג פייג'",'pricing.web.3':"לנדינג פייג'",'pricing.web.4':'לנדינג + בוט אוטומטי','pricing.landing.title':"לנדינג פייג'",'pricing.landing.1':"לנדינג פייג' אחד",'pricing.landing.2':'לנדינג + בוט אוטומטי',
         'modal.title':'תודה רבה!','modal.desc':'קיבלנו את הבקשה שלך. ניצור איתך קשר בהקדם.','modal.close':'סגור',
         'faq.label':'שאלות נפוצות','faq.q1':'כמה זמן לוקח פרויקט?','faq.a1':'תלוי בסוג הפרויקט. מונטאז\' רגיל — 3-5 ימים. אתר — 7-14 ימים. צילום — מתואם לפי לוח הזמנים שלך.','faq.q2':'איך מתחילים לעבוד?','faq.a2':'שולחים הודעה בטופס או באינסטגרם, מסבירים את הפרויקט, מסכימים על מחיר ומועד — ומתחילים.','faq.q3':'מה כולל המחיר?','faq.a3':'המחיר כולל את כל העבודה המפורטת בחבילה. תיקונים עד 5 פעמים — בחינם.','faq.q4':'האם יש מקדמה?','faq.a4':'כן, 50% מקדמה לפני תחילת העבודה. היתרה משולמת עם מסירת הפרויקט הסופי.','faq.q5':'עובדים מרחוק?','faq.a5':'כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל.',
+        'timer.text':'⚡ המחירים האלה בתוקף עוד:','timer.hours':'שעות','timer.minutes':'דקות','timer.seconds':'שניות',
       },
       ru: {
         'nav.about': 'Обо мне',
@@ -1579,6 +1615,7 @@
         'pricing.web.title':'Сайты','pricing.web.1':'Полный сайт + домен','pricing.web.2':'Сайт + лендинг','pricing.web.3':'Лендинг пейдж','pricing.web.4':'Лендинг + бот','pricing.landing.title':'Лендинг пейдж','pricing.landing.1':'Один лендинг пейдж','pricing.landing.2':'Лендинг + бот',
         'modal.title':'Спасибо!','modal.desc':'Мы получили ваш запрос. Свяжемся с вами в ближайшее время.','modal.close':'Закрыть',
         'faq.label':'FAQ','faq.q1':'Сколько времени занимает проект?','faq.a1':'Зависит от типа. Монтаж — 3-5 дней. Сайт — 7-14 дней. Съёмка — по вашему графику.','faq.q2':'Как начать работу?','faq.a2':'Напишите в форме или Instagram, объясните проект, согласуем цену и сроки — начинаем.','faq.q3':'Что включает цена?','faq.a3':'Всё что указано в пакете. До 5 правок — бесплатно. Каждая следующая — отдельно.','faq.q4':'Есть ли предоплата?','faq.a4':'Да, 50% предоплата до начала работы. Остаток — при сдаче финального проекта.','faq.q5':'Работаете удалённо?','faq.a5':'Да! Работаем с клиентами по всему Израилю и за рубежом. Всё онлайн.',
+        'timer.text':'⚡ Эти цены действуют ещё:','timer.hours':'часов','timer.minutes':'минут','timer.seconds':'секунд',
       },
       en: {
         'nav.about': 'About',
@@ -1654,6 +1691,7 @@
         'pricing.web.title':'Websites','pricing.web.1':'Full Site + Domain','pricing.web.2':'Site + Landing Page','pricing.web.3':'Landing Page','pricing.web.4':'Landing + Bot','pricing.landing.title':'Landing Page','pricing.landing.1':'One Landing Page','pricing.landing.2':'Landing + Bot',
         'modal.title':'Thank You!','modal.desc':'We received your request. We will contact you shortly.','modal.close':'Close',
         'faq.label':'FAQ','faq.q1':'How long does a project take?','faq.a1':'Depends on the type. Editing — 3-5 days. Website — 7-14 days. Filming — scheduled by your availability.','faq.q2':'How do we start?','faq.a2':'Send a message via the form or Instagram, explain the project, agree on price and timeline — we start.','faq.q3':'What does the price include?','faq.a3':'Everything listed in the package. Up to 5 revisions — free. Each additional one is charged separately.','faq.q4':'Is there a deposit?','faq.a4':'Yes, 50% deposit before work begins. The rest is paid upon delivery of the final project.','faq.q5':'Do you work remotely?','faq.a5':'Yes! We work with clients across Israel and abroad. Everything is handled online.',
+        'timer.text':'⚡ These prices are valid for:','timer.hours':'hours','timer.minutes':'minutes','timer.seconds':'seconds',
       }
     };
 
@@ -1832,6 +1870,28 @@ const counterObserver = new IntersectionObserver((entries) => {
     animateParticles();
 
 document.querySelectorAll('.stat-num, .badge-num[data-target]').forEach(el => counterObserver.observe(el));
+
+// ── COUNTDOWN TIMER ──
+    function startTimer() {
+      const key = 'timerEnd';
+      let end = localStorage.getItem(key);
+      if (!end) {
+        end = Date.now() + 22 * 60 * 60 * 1000;
+        localStorage.setItem(key, end);
+      }
+      function update() {
+        const diff = Math.max(0, end - Date.now());
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('timerH').textContent = String(h).padStart(2,'0');
+        document.getElementById('timerM').textContent = String(m).padStart(2,'0');
+        document.getElementById('timerS').textContent = String(s).padStart(2,'0');
+        if (diff > 0) setTimeout(update, 1000);
+      }
+      update();
+    }
+    startTimer();
 
 // ── BACK TO TOP ──
     window.addEventListener('scroll', () => {
