@@ -196,8 +196,14 @@ function changeStatus(id,status){
 }
 function load(){
   fetch('/admin/data',{headers:{'Authorization':'Bearer '+pw}})
-    .then(r=>{if(r.status===401){localStorage.removeItem('adminpw');location.href='/admin';}return r.json();})
-    .then(render).catch(console.error);
+    .then(r=>{
+      document.getElementById('main').innerHTML='<div style="color:white;padding:32px">Status: '+r.status+' | pw: '+pw+'</div>';
+      if(r.status===401){localStorage.removeItem('adminpw');location.href='/admin';}
+      return r.json();
+    })
+    .then(render).catch(e=>{
+      document.getElementById('main').innerHTML='<div style="color:red;padding:32px">Error: '+e.message+'</div>';
+    });
 }
 function render({orders,stats}){
   const maxS=stats.topSections[0]?.count||1;
