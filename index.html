@@ -2635,6 +2635,8 @@
   document.body.style.overflow = 'hidden';
   const backBtn = document.getElementById('backToTop');
   if (backBtn) backBtn.style.display = 'none';
+  const waBtn = document.querySelector('.whatsapp-btn-wrap');
+  if (waBtn) waBtn.style.display = 'none';
 }
     function closeCart() {
   document.getElementById('cartSidebar').classList.remove('open');
@@ -2642,6 +2644,8 @@
   document.body.style.overflow = '';
   const backBtn = document.getElementById('backToTop');
   if (backBtn) backBtn.style.display = '';
+  const waBtn = document.querySelector('.whatsapp-btn-wrap');
+  if (waBtn) waBtn.style.display = '';
 }
 
     function goToCheckout() {
