@@ -2303,7 +2303,7 @@
               oldPriceHtml +
               '<div class="calc-item-price">' + item.price.toLocaleString() + ' ₪</div>' +
             '</div>' +
-            '<button class="calc-add-btn' + (inCart ? ' in-cart' : '') + '" onclick="event.stopPropagation();' + (inCart ? 'removeFromCart('' + item.id + '')' : 'addToCart('' + item.id + '')') + '">' + btnLabel + '</button>' +
+            '<button class="calc-add-btn' + (inCart ? ' in-cart' : '') + '" onclick="event.stopPropagation();' + (inCart ? "removeFromCart('" + item.id + "')" : "addToCart('" + item.id + "')") + '">' + btnLabel + '</button>' +
           '</div>';
         container.appendChild(div);
       });
