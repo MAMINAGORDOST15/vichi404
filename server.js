@@ -108,7 +108,7 @@ app.post('/api/visit', (req, res) => {
 });
 
 // ── ADMIN ──
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'vichi404admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
 
 app.get('/admin/data', (req, res) => {
   if (req.headers.authorization !== `Bearer ${ADMIN_PASSWORD}`) return res.status(401).json({ error: 'Unauthorized' });
