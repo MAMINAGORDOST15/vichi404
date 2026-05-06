@@ -1184,7 +1184,7 @@
     /* ── CALC ITEM (new cart style) ── */
     .calc-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; border: 0.5px solid var(--line); background: var(--bg2); transition: border-color 0.2s; }
     .calc-item:hover { border-color: rgba(255,255,255,0.2); }
-    .calc-item.in-cart { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.03); }
+    .calc-item.in-cart, .calc-item.selected { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.03); }
     .calc-item-info { flex: 1; }
     .calc-item-name { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
     .calc-item-right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
@@ -1707,7 +1707,7 @@
           <span class="calc-total-label" data-i18n="calc.total">סה"כ</span>
           <span class="calc-total-price" id="calcTotal">0 ₪</span>
         </div>
-        <button class="calc-cta" id="calcCta" onclick="openOrderModal('calc')" disabled data-i18n="calc.cta">שלח הזמנה →</button>
+        <button class="calc-cta" id="calcCta" onclick="openCartSidebar()" disabled data-i18n="calc.cta">שלח הזמנה →</button>
       </div>
     </div>
   </section>
@@ -1875,7 +1875,7 @@
         'faq.q5': 'עובדים מרחוק?', 'faq.a5': 'כן! עובדים עם לקוחות מכל הארץ ומחוץ לישראל. הכל מתנהל אונליין בצורה נוחה ומהירה.',
         'timer.text': '⚡ המחירים האלה בתוקף עוד:', 'timer.hours': 'שעות', 'timer.minutes': 'דקות', 'timer.seconds': 'שניות',
         'calc.label': 'מחשבון מחירים', 'calc.summary': 'סיכום הזמנה', 'calc.empty': 'לא נבחרו שירותים עדיין',
-        'calc.total': 'סה"כ', 'calc.cta': 'שלח הזמנה →',
+        'calc.total': 'סה"כ', 'calc.cta': 'לסל הקניות →',
         'calc.add': '+ הוסף לסל', 'calc.in_cart': '✓ בסל',
         'cart.title': 'סל הקניות', 'cart.empty': 'הסל ריק', 'cart.total': 'סה"כ', 'cart.checkout': 'המשך לתשלום →',
         'checkout.title': 'פרטי הזמנה', 'checkout.back': 'חזור לסל',
@@ -1928,7 +1928,7 @@
         'faq.q5': 'Работаете удалённо?', 'faq.a5': 'Да! Работаем с клиентами по всему Израилю и за рубежом. Всё онлайн.',
         'timer.text': '⚡ Эти цены действуют ещё:', 'timer.hours': 'часов', 'timer.minutes': 'минут', 'timer.seconds': 'секунд',
         'calc.label': 'Калькулятор цен', 'calc.summary': 'Сводка заказа', 'calc.empty': 'Услуги ещё не выбраны',
-        'calc.total': 'Итого', 'calc.cta': 'Отправить заказ →',
+        'calc.total': 'Итого', 'calc.cta': 'Перейти в корзину →',
         'calc.add': '+ В корзину', 'calc.in_cart': '✓ В корзине',
         'cart.title': 'Корзина', 'cart.empty': 'Корзина пуста', 'cart.total': 'Итого', 'cart.checkout': 'Перейти к оплате →',
         'checkout.title': 'Детали заказа', 'checkout.back': 'Назад в корзину',
@@ -1981,7 +1981,7 @@
         'faq.q5': 'Do you work remotely?', 'faq.a5': 'Yes! We work with clients across Israel and abroad. Everything is handled online.',
         'timer.text': '⚡ These prices are valid for:', 'timer.hours': 'hours', 'timer.minutes': 'minutes', 'timer.seconds': 'seconds',
         'calc.label': 'Price Calculator', 'calc.summary': 'Order Summary', 'calc.empty': 'No services selected yet',
-        'calc.total': 'Total', 'calc.cta': 'Send Order →',
+        'calc.total': 'Total', 'calc.cta': 'Go to cart →',
         'calc.add': '+ Add to cart', 'calc.in_cart': '✓ In cart',
         'cart.title': 'Cart', 'cart.empty': 'Cart is empty', 'cart.total': 'Total', 'cart.checkout': 'Proceed to checkout →',
         'checkout.title': 'Order details', 'checkout.back': 'Back to cart',
@@ -2283,31 +2283,69 @@
     }
 
     function renderCalcItems() {
-      const container = document.getElementById('calcServices');
-      if (!container) return;
-      const t = translations[currentLang];
-      container.innerHTML = '';
-      calcItems.forEach(item => {
-        const inCart = !!cart.find(i => i.id === item.id);
-        const div = document.createElement('div');
-        div.className = 'calc-item' + (inCart ? ' in-cart' : '');
-        div.setAttribute('data-calc-id', item.id);
-        const oldPriceHtml = item.oldPrice ? '<span class="calc-item-old-price">' + item.oldPrice.toLocaleString() + ' ₪</span>' : '';
-        const btnLabel = inCart ? (t['calc.in_cart'] || '✓ בסל') : (t['calc.add'] || '+ הוסף לסל');
-        div.innerHTML =
-          '<div class="calc-item-info">' +
-            '<div class="calc-item-name">' + (item.name[currentLang] || item.name.he) + '</div>' +
-          '</div>' +
-          '<div class="calc-item-right">' +
-            '<div class="calc-item-prices">' +
-              oldPriceHtml +
-              '<div class="calc-item-price">' + item.price.toLocaleString() + ' ₪</div>' +
-            '</div>' +
-            '<button class="calc-add-btn' + (inCart ? ' in-cart' : '') + '" onclick="event.stopPropagation();' + (inCart ? "removeFromCart('" + item.id + "')" : "addToCart('" + item.id + "')") + '">' + btnLabel + '</button>' +
-          '</div>';
-        container.appendChild(div);
-      });
-    }
+  const container = document.getElementById('calcServices');
+  if (!container) return;
+  const t = translations[currentLang];
+  container.innerHTML = '';
+  calcItems.forEach(item => {
+    const inCart = !!cart.find(i => i.id === item.id);
+    const div = document.createElement('div');
+    div.className = 'calc-item' + (inCart ? ' selected' : '');
+    div.setAttribute('data-calc-id', item.id);
+    div.onclick = () => toggleCalcSelect(item.id);
+    const oldPriceHtml = item.oldPrice
+      ? '<span class="calc-item-old-price">' + item.oldPrice.toLocaleString() + ' ₪</span>'
+      : '';
+    div.innerHTML =
+      '<div class="calc-check">' + (inCart ? '✓' : '') + '</div>' +
+      '<div class="calc-item-info">' +
+        '<div class="calc-item-name">' + (item.name[currentLang] || item.name.he) + '</div>' +
+      '</div>' +
+      '<div class="calc-item-prices">' +
+        oldPriceHtml +
+        '<div class="calc-item-price">' + item.price.toLocaleString() + ' ₪</div>' +
+      '</div>';
+    container.appendChild(div);
+  });
+  renderCalcSummary();
+}
+
+function toggleCalcSelect(id) {
+  const inCart = !!cart.find(i => i.id === id);
+  if (inCart) {
+    removeFromCart(id);
+  } else {
+    const item = calcItems.find(i => i.id === id);
+    if (!item) return;
+    cart.push({...item});
+    renderCart();
+  }
+  renderCalcItems();
+}
+
+function renderCalcSummary() {
+  const linesEl = document.getElementById('calcLines');
+  const totalEl = document.getElementById('calcTotal');
+  const ctaEl = document.getElementById('calcCta');
+  const t = translations[currentLang];
+  linesEl.innerHTML = '';
+  if (cart.length === 0) {
+    linesEl.innerHTML = '<div class="calc-empty">' + (t['calc.empty'] || 'לא נבחרו שירותים') + '</div>';
+    totalEl.textContent = '0 ₪';
+    ctaEl.disabled = true;
+    return;
+  }
+  cart.forEach(item => {
+    const line = document.createElement('div');
+    line.className = 'calc-line';
+    line.innerHTML =
+      '<span>' + (item.name[currentLang] || item.name.he) + '</span>' +
+      '<span class="calc-line-price">' + item.price.toLocaleString() + ' ₪</span>';
+    linesEl.appendChild(line);
+  });
+  totalEl.textContent = cartGetTotal().toLocaleString() + ' ₪';
+  ctaEl.disabled = false;
+}
 
     // ── SCROLL FADE IN ──
     const observer = new IntersectionObserver((entries) => {
