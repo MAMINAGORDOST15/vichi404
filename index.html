@@ -2408,15 +2408,19 @@
     }
 
     function openCartSidebar() {
-      document.getElementById('cartSidebar').classList.add('open');
-      document.getElementById('cartOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+  document.getElementById('cartSidebar').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const backBtn = document.getElementById('backToTop');
+  if (backBtn) backBtn.style.display = 'none';
+}
     function closeCart() {
-      document.getElementById('cartSidebar').classList.remove('open');
-      document.getElementById('cartOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
+  document.getElementById('cartSidebar').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  const backBtn = document.getElementById('backToTop');
+  if (backBtn) backBtn.style.display = '';
+}
 
     function goToCheckout() {
       closeCart();
