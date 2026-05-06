@@ -1524,6 +1524,13 @@
     }
     .whatsapp-btn-wrap:hover .wa-quick-label { opacity: 1; transform: translateY(0); }
 
+    .insta-slider { position: relative; width: 100%; height: 100%; }
+.insta-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: grayscale(20%) brightness(0.8); opacity: 0; transition: opacity 0.8s ease; }
+.insta-slide.active { opacity: 1; }
+.insta-slider-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; }
+.slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: background 0.3s; padding: 0; }
+.slider-dot.active { background: #fff; }
+
   </style>
 </head>
 <body>
@@ -1709,9 +1716,18 @@
 
       <!-- LEFT — Instagram Photo -->
       <div class="insta-photo-wrap">
-        <img src="images/photo-insta.jpg" alt="VICHI404 — עבודות אחרונות באינסטגרם" class="insta-photo" loading="lazy">
-        <div class="insta-photo-overlay"></div>
-      </div>
+  <div class="insta-slider" id="instaSlider">
+    <img src="images/slide-1.jpg" alt="VICHI404 studio setup" class="insta-slide active">
+    <img src="images/slide-2.jpg" alt="VICHI404 filming" class="insta-slide">
+    <img src="images/slide-3.jpg" alt="VICHI404 editing" class="insta-slide">
+  </div>
+  <div class="insta-slider-dots" id="sliderDots">
+    <span class="slider-dot active"></span>
+    <span class="slider-dot"></span>
+    <span class="slider-dot"></span>
+  </div>
+  <div class="insta-photo-overlay"></div>
+</div>
 
       <!-- RIGHT — Instagram Text + Button -->
       <div class="insta-text-side">
@@ -2960,6 +2976,22 @@ function renderCalcSummary() {
       });
     }
     initLiquidGlass();
+
+    // ── INSTAGRAM SLIDER ──
+(function() {
+  const slides = document.querySelectorAll('.insta-slide');
+  const dots = document.querySelectorAll('.slider-dot');
+  let current = 0;
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  setInterval(() => goTo(current + 1), 4000);
+})();
 
     // ── INIT ──
     loadCart();
